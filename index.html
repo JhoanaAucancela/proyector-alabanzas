@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyector de Alabanzas</title>
+<style>
+  :root{
+    --bg-deep:#161311;
+    --bg-panel:#1f1b18;
+    --bg-panel-raised:#272220;
+    --ink-warm:#f3eade;
+    --ink-dim:#a89c8e;
+    --accent:#c98a3a;
+    --accent-soft:#c98a3a33;
+    --confirm:#5fa881;
+    --line:#3a332c;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+  }
+
+  @font-face {
+    font-family: 'Fraunces';
+    src: local('Georgia');
+  }
+
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0;padding:0;height:100%;
+    background:var(--bg-deep);
+    color:var(--ink-warm);
+    font-family:var(--font-body);
+    overflow:hidden;
+  }
+
+  /* ===================== LANDING / SELECTOR DE MODO ===================== */
+  #view-landing{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:2.5rem;
+    text-align:center;
+    padding:2rem;
+  }
+  #view-landing h1{
+    font-family:var(--font-display);
+    font-size:clamp(2rem,5vw,3.2rem);
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  #view-landing .eyebrow{
+    color:var(--accent);
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    font-size:0.75rem;
+    font-weight:600;
+    margin-bottom:0.6rem;
+  }
+  .landing-options{
+    display:flex;
+    gap:1.5rem;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .landing-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:2rem 2.2rem;
+    width:260px;
+    cursor:pointer;
+    transition:transform .15s ease, border-color .15s ease;
+    text-align:left;
+  }
+  .landing-card:hover{
+    border-color:var(--accent);
+    transform:translateY(-2px);
+  }
+  .landing-card h2{
+    font-family:var(--font-display);
+    font-size:1.3rem;
+    margin:0 0 0.5rem;
+  }
+  .landing-card p{
+    color:var(--ink-dim);
+    font-size:0.9rem;
+    line-height:1.5;
+    margin:0;
+  }
+
+  /* ===================== VISTA OPERADOR ===================== */
+  #view-operator{
+    display:none;
+    height:100vh;
+    grid-template-columns: 320px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header header"
+      "songs main"
+      "footer footer";
+  }
+  #view-operator.active{display:grid;}
+
+  .op-header{
+    grid-area:header;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0.9rem 1.4rem;
+    border-bottom:1px solid var(--line);
+    background:var(--bg-panel);
+  }
+  .op-header .brand{
+    display:flex;
+    align-items:baseline;
+    gap:0.6rem;
+  }
+  .op-header .brand b{
+    font-family:var(--font-display);
+    font-size:1.15rem;
+  }
+  .op-header .brand span{
+    color:var(--ink-dim);
+    font-size:0.78rem;
+  }
+  .mic-status{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    font-size:0.82rem;
+    color:var(--ink-dim);
+  }
+  .mic-dot{
+    width:9px;height:9px;border-radius:50%;
+    background:#6b6258;
+    transition:background .2s ease;
+  }
+  .mic-dot.live{
+    background:#e0584a;
+    box-shadow:0 0 0 0 #e0584a66;
+    animation:pulse 1.4s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 #e0584a55;}
+    70%{box-shadow:0 0 0 8px #e0584a00;}
+    100%{box-shadow:0 0 0 0 #e0584a00;}
+  }
+  .btn{
+    font-family:var(--font-body);
+    border:1px solid var(--line);
+    background:var(--bg-panel-raised);
+    color:var(--ink-warm);
+    border-radius:8px;
+    padding:0.55rem 1rem;
+    font-size:0.85rem;
+    cursor:pointer;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .btn:hover{border-color:var(--accent);}
+  .btn.primary{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:#1c1410;
+    font-weight:600;
+  }
+  .btn.primary:hover{filter:brightness(1.08);}
+  .btn.danger:hover{border-color:#e0584a;}
+  .btn:disabled{opacity:0.4;cursor:not-allowed;}
+
+  .op-songs{
+    grid-area:songs;
+    border-right:1px solid var(--line);
+    background:var(--bg-panel);
+    overflow-y:auto;
+    padding:1rem;
+  }
+  .op-songs h3{
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--ink-dim);
+    margin:0.4rem 0.4rem 0.8rem;
+  }
+  .song-item{
+    padding:0.65rem 0.8rem;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:0.92rem;
+    margin-bottom:0.2rem;
+    color:var(--ink-dim);
+    border:1px solid transparent;
+  }
+  .song-item:hover{background:var(--bg-panel-raised);}
+  .song-item.active{
+    background:var(--accent-soft);
+    color:var(--ink-warm);
+    border-color:var(--accent);
+    font-weight:600;
+  }
+  .song-empty{
+    color:var(--ink-dim);
+    font-size:0.85rem;
+    padding:0.6rem;
+    line-height:1.5;
+  }
+
+  .op-main{
+    grid-area:main;
+    padding:1.4rem 1.6rem;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+    gap:1.2rem;
+  }
+
+  .no-song-msg{
+    margin:auto;
+    text-align:center;
+    color:var(--ink-dim);
+    max-width:380px;
+  }
+  .no-song-msg h2{
+    font-family:var(--font-display);
+    color:var(--ink-warm);
+    font-size:1.4rem;
+  }
+
+  .current-line-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:1.4rem 1.6rem;
+  }
+  .current-line-card .label{
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--ink-dim);
+    margin-bottom:0.5rem;
+  }
+  .current-line-text{
+    font-family:var(--font-display);
+    font-size:1.7rem;
+    line-height:1.35;
+  }
+
+  .suggestion-card{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:1.4rem 1.6rem;
+    position:relative;
+    transition:border-color .2s ease;
+  }
+  .suggestion-card.armed{
+    border-color:var(--confirm);
+  }
+  .suggestion-card .label{
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--ink-dim);
+    margin-bottom:0.6rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .confidence-pill{
+    font-size:0.7rem;
+    padding:0.2rem 0.55rem;
+    border-radius:999px;
+    background:var(--bg-panel-raised);
+    color:var(--ink-dim);
+    border:1px solid var(--line);
+  }
+  .confidence-pill.high{color:var(--confirm);border-color:var(--confirm);}
+  .confidence-pill.mid{color:var(--accent);border-color:var(--accent);}
+  .suggestion-text{
+    font-family:var(--font-display);
+    font-size:1.5rem;
+    line-height:1.35;
+    color:var(--ink-warm);
+    min-height:2.6rem;
+  }
+  .suggestion-text.empty{
+    color:var(--ink-dim);
+    font-size:1rem;
+    font-family:var(--font-body);
+  }
+  .suggestion-actions{
+    margin-top:1rem;
+    display:flex;
+    gap:0.6rem;
+  }
+
+  .transcript-box{
+    background:var(--bg-deep);
+    border:1px dashed var(--line);
+    border-radius:10px;
+    padding:0.8rem 1rem;
+    font-size:0.82rem;
+    color:var(--ink-dim);
+    min-height:2.2rem;
+    font-family:ui-monospace, monospace;
+  }
+
+  .lines-list{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:0.6rem;
+    flex:1;
+    overflow-y:auto;
+  }
+  .lines-list .label{
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--ink-dim);
+    padding:0.5rem 0.8rem 0.3rem;
+  }
+  .line-row{
+    padding:0.55rem 0.9rem;
+    border-radius:8px;
+    font-size:0.92rem;
+    color:var(--ink-dim);
+    cursor:pointer;
+    border-left:3px solid transparent;
+  }
+  .line-row:hover{background:var(--bg-panel-raised);}
+  .line-row.current{
+    color:var(--ink-warm);
+    background:var(--accent-soft);
+    border-left-color:var(--accent);
+    font-weight:600;
+  }
+  .line-row.tag{
+    color:var(--ink-dim);
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    cursor:default;
+  }
+  .line-row.tag:hover{background:none;}
+
+  .op-footer{
+    grid-area:footer;
+    border-top:1px solid var(--line);
+    background:var(--bg-panel);
+    padding:0.7rem 1.4rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:0.78rem;
+    color:var(--ink-dim);
+  }
+  .kbd{
+    display:inline-block;
+    background:var(--bg-panel-raised);
+    border:1px solid var(--line);
+    border-radius:5px;
+    padding:0.1rem 0.4rem;
+    font-family:ui-monospace, monospace;
+    font-size:0.75rem;
+    margin:0 0.15rem;
+  }
+
+  /* ===================== VISTA PROYECCIÓN ===================== */
+  #view-projector{
+    display:none;
+    height:100vh;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:var(--bg-deep);
+    position:relative;
+    padding:4vh 6vw;
+  }
+  #view-projector.active{display:flex;}
+  #projector-line{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(2.2rem, 6vw, 5.2rem);
+    line-height:1.3;
+    letter-spacing:-0.01em;
+    max-width:90vw;
+    transition:opacity .25s ease;
+  }
+  #projector-line.fade{opacity:0;}
+  .projector-exit-hint{
+    position:absolute;
+    bottom:1.2rem;
+    right:1.4rem;
+    color:#5a534a;
+    font-size:0.72rem;
+    font-family:var(--font-body);
+  }
+  .projector-empty{
+    color:#4a4438;
+    font-family:var(--font-body);
+    font-size:1.1rem;
+  }
+
+  /* ===================== MODAL AÑADIR CANCIÓN ===================== */
+  .modal-backdrop{
+    position:fixed;inset:0;
+    background:rgba(10,8,6,0.7);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:50;
+    padding:2rem;
+  }
+  .modal-backdrop.active{display:flex;}
+  .modal{
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:1.6rem;
+    width:100%;
+    max-width:560px;
+    max-height:85vh;
+    overflow-y:auto;
+  }
+  .modal h2{
+    font-family:var(--font-display);
+    margin:0 0 0.3rem;
+    font-size:1.4rem;
+  }
+  .modal p.hint{
+    color:var(--ink-dim);
+    font-size:0.85rem;
+    margin:0 0 1rem;
+    line-height:1.5;
+  }
+  .modal label{
+    display:block;
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-dim);
+    margin-bottom:0.4rem;
+    margin-top:0.9rem;
+  }
+  .modal input[type=text], .modal textarea{
+    width:100%;
+    background:var(--bg-deep);
+    border:1px solid var(--line);
+    border-radius:8px;
+    color:var(--ink-warm);
+    font-family:var(--font-body);
+    font-size:0.95rem;
+    padding:0.6rem 0.8rem;
+    resize:vertical;
+  }
+  .modal textarea{min-height:220px;line-height:1.6;}
+  .modal-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:0.6rem;
+    margin-top:1.3rem;
+  }
+  .checkbox-row{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    margin-top:0.7rem;
+    font-size:0.85rem;
+    color:var(--ink-dim);
+  }
+
+  /* ===================== SET DE SERVICIO (lista del día) ===================== */
+  .setlist-bar{
+    grid-area:songs;
+    border-right:1px solid var(--line);
+    background:var(--bg-panel);
+    overflow-y:auto;
+    padding:1rem;
+    display:flex;
+    flex-direction:column;
+  }
+  .setlist-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:0.6rem;
+  }
+  .setlist-header h3{
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--ink-dim);
+    margin:0.4rem 0.4rem 0;
+  }
+  .link-btn{
+    background:none;
+    border:none;
+    color:var(--accent);
+    font-size:0.78rem;
+    cursor:pointer;
+    padding:0;
+    text-decoration:underline;
+  }
+  .setlist-empty{
+    color:var(--ink-dim);
+    font-size:0.85rem;
+    padding:0.8rem 0.4rem;
+    line-height:1.55;
+  }
+  .setlist-item{
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+    padding:0.6rem 0.7rem;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:0.92rem;
+    color:var(--ink-dim);
+    border-left:3px solid transparent;
+    margin-bottom:0.15rem;
+  }
+  .setlist-item:hover{background:var(--bg-panel-raised);}
+  .setlist-item.active{
+    background:var(--accent-soft);
+    color:var(--ink-warm);
+    border-left-color:var(--accent);
+    font-weight:600;
+  }
+  .setlist-item .num{
+    color:var(--ink-dim);
+    font-size:0.78rem;
+    width:1.4rem;
+    flex-shrink:0;
+  }
+  .setlist-item.active .num{color:var(--accent);}
+  .setlist-nav{
+    display:flex;
+    gap:0.5rem;
+    margin-top:0.8rem;
+  }
+  .setlist-nav .btn{flex:1;}
+
+  /* ===================== MODAL CONSTRUCTOR DE SET ===================== */
+  .set-builder-columns{
+    display:flex;
+    gap:1rem;
+    margin-top:0.8rem;
+  }
+  .set-builder-col{
+    flex:1;
+    background:var(--bg-deep);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:0.6rem;
+    height:320px;
+    overflow-y:auto;
+  }
+  .set-builder-col h4{
+    font-size:0.7rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--ink-dim);
+    margin:0.2rem 0.3rem 0.6rem;
+  }
+  .picker-item{
+    padding:0.5rem 0.6rem;
+    border-radius:6px;
+    font-size:0.88rem;
+    cursor:pointer;
+    color:var(--ink-warm);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .picker-item:hover{background:var(--bg-panel-raised);}
+  .picker-item .add-icon{color:var(--accent);font-size:1.1rem;}
+  .picker-item .remove-icon{color:#e0584a;font-size:1.1rem;}
+  .set-builder-col .empty-hint{
+    color:var(--ink-dim);
+    font-size:0.82rem;
+    padding:0.6rem;
+    line-height:1.5;
+  }
+  .set-order-row{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    padding:0.4rem 0.5rem;
+    border-radius:6px;
+  }
+  .set-order-row:hover{background:var(--bg-panel-raised);}
+  .set-order-row .order-num{
+    color:var(--ink-dim);
+    font-size:0.8rem;
+    width:1.3rem;
+  }
+  .set-order-row .order-actions{
+    display:flex;
+    gap:0.3rem;
+    margin-left:auto;
+  }
+  .order-actions button{
+    background:none;
+    border:none;
+    color:var(--ink-dim);
+    cursor:pointer;
+    font-size:0.85rem;
+    padding:0.1rem 0.3rem;
+  }
+  .order-actions button:hover{color:var(--ink-warm);}
+</style>
+</head>
+<body>
+
+<!-- ===================== LANDING ===================== -->
+<div id="view-landing">
+  <div>
+    <div class="eyebrow">Letras de alabanzas</div>
+    <h1>Proyector con reconocimiento de voz</h1>
+  </div>
+  <div class="landing-options">
+    <div class="landing-card" onclick="goToOperator()">
+      <h2>Panel de operador</h2>
+      <p>Aquí controlas las canciones. El sistema escucha y sugiere la línea; tú confirmas con un toque.</p>
+    </div>
+    <div class="landing-card" onclick="goToProjector()">
+      <h2>Pantalla de proyección</h2>
+      <p>Abre esta vista en el proyector o pantalla para la congregación. Muestra solo la letra, en grande.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== OPERADOR ===================== -->
+<div id="view-operator">
+  <div class="op-header">
+    <div class="brand">
+      <b>Panel de operador</b>
+      <span>modo híbrido — voz sugiere, tú confirmas</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div class="mic-status">
+        <div class="mic-dot" id="mic-dot"></div>
+        <span id="mic-label">Micrófono apagado</span>
+      </div>
+      <button class="btn" id="btn-toggle-mic">Activar micrófono</button>
+      <button class="btn" onclick="openSetlistModal()">Lista de hoy</button>
+      <button class="btn" onclick="openProjectorWindow()">Abrir proyección ↗</button>
+      <button class="btn" onclick="showLanding()">Salir</button>
+    </div>
+  </div>
+
+  <div class="setlist-bar" id="setlist-bar">
+    <!-- contenido renderizado dinámicamente por renderSidebar() -->
+  </div>
+
+  <div class="op-main" id="op-main"></div>
+
+  <div class="op-footer">
+    <div>
+      <span class="kbd">␣</span> o <span class="kbd">→</span> confirmar sugerencia / avanzar línea &nbsp;·&nbsp;
+      <span class="kbd">←</span> retroceder línea &nbsp;·&nbsp;
+      <span class="kbd">Pg↑</span>/<span class="kbd">Pg↓</span> cambiar canción
+    </div>
+    <div id="footer-song-name" style="color:var(--ink-warm);font-weight:600;"></div>
+  </div>
+</div>
+
+<!-- ===================== PROYECCIÓN ===================== -->
+<div id="view-projector">
+  <div id="projector-line" class="projector-empty">Esperando canción…</div>
+  <div class="projector-exit-hint">Esc para salir</div>
+</div>
+
+<!-- ===================== MODAL AÑADIR CANCIÓN ===================== -->
+<div class="modal-backdrop" id="modal-add">
+  <div class="modal">
+    <h2>Añadir canción</h2>
+    <p class="hint">Pega la letra completa. El sistema la divide en líneas automáticamente por cada salto de línea, ignorando líneas vacías.</p>
+    <label>Título</label>
+    <input type="text" id="input-title" placeholder="Ej. Cuán grande es Él">
+    <label>Letra completa</label>
+    <textarea id="input-lyrics" placeholder="Pega aquí la letra completa...&#10;&#10;Coro:&#10;Cuán grande es Él&#10;Cuán grande es Él..."></textarea>
+    <div class="checkbox-row">
+      <input type="checkbox" id="input-keep-tags" checked>
+      <label style="margin:0;text-transform:none;letter-spacing:0;font-size:0.85rem;" for="input-keep-tags">
+        Mantener etiquetas como "Coro:" o "Verso 1:" como referencia visual (no se proyectan ni se usan para reconocimiento)
+      </label>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeAddSongModal()">Cancelar</button>
+      <button class="btn primary" onclick="saveSong()">Guardar canción</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL CONSTRUCTOR DE SET DE SERVICIO ===================== -->
+<div class="modal-backdrop" id="modal-setlist">
+  <div class="modal" style="max-width:700px;">
+    <h2>Lista de alabanzas de hoy</h2>
+    <p class="hint">Elige las canciones que se van a cantar y el orden. Esta lista es la que verás durante el servicio para ir avanzando de canción en canción.</p>
+    <div class="set-builder-columns">
+      <div class="set-builder-col">
+        <h4>Catálogo completo</h4>
+        <div id="set-builder-catalog"></div>
+      </div>
+      <div class="set-builder-col">
+        <h4>Orden de hoy</h4>
+        <div id="set-builder-order"></div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="clearSetlist()">Vaciar lista</button>
+      <button class="btn" onclick="closeSetlistModal()">Cancelar</button>
+      <button class="btn primary" onclick="saveSetlist()">Guardar lista</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL RESULTADO DE IMPORTACIÓN ===================== -->
+<div class="modal-backdrop" id="modal-import-result">
+  <div class="modal" style="max-width:420px;">
+    <h2>Importación completada</h2>
+    <p class="hint" id="import-result-text"></p>
+    <div class="modal-actions">
+      <button class="btn primary" onclick="closeImportResultModal()">Listo</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =========================================================================
+   ESTADO Y PERSISTENCIA
+   ========================================================================= */
+const STORAGE_KEY = 'alabanzas_songs_v1';
+const PROJECTOR_CHANNEL = 'alabanzas_projector_v1';
+
+let songs = [];          // [{id, title, lines: [{id, text, isTag}]}]
+let currentSongId = null;
+let currentLineIndex = -1; // índice dentro de las líneas CANTABLES (sin tags)
+let recognizing = false;
+let recognition = null;
+let suggestion = { index: -1, confidence: 0, text: '' };
+let bc = null;
+
+let setlist = [];         // array de songIds en el orden de hoy
+let currentSetIndex = -1; // posición dentro de setlist
+let setBuilderDraft = []; // copia de trabajo mientras se edita el modal, sin guardar hasta confirmar
+
+const SETLIST_STORAGE_KEY = 'alabanzas_setlist_v1';
+
+function loadSetlist(){
+  try{
+    const raw = localStorage.getItem(SETLIST_STORAGE_KEY);
+    setlist = raw ? JSON.parse(raw) : [];
+  }catch(e){ setlist = []; }
+  // limpiar referencias a canciones que ya no existen (ej. se borraron del catálogo)
+  setlist = setlist.filter(id => songs.some(s => s.id === id));
+}
+function persistSetlist(){
+  localStorage.setItem(SETLIST_STORAGE_KEY, JSON.stringify(setlist));
+}
+
+function loadSongs(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    songs = raw ? JSON.parse(raw) : [];
+  }catch(e){ songs = []; }
+}
+function saveSongs(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(songs));
+}
+
+/* =========================================================================
+   NAVEGACIÓN ENTRE VISTAS
+   ========================================================================= */
+function showLanding(){
+  document.getElementById('view-landing').style.display = 'flex';
+  document.getElementById('view-operator').classList.remove('active');
+  document.getElementById('view-projector').classList.remove('active');
+  stopRecognition();
+}
+function goToOperator(){
+  document.getElementById('view-landing').style.display = 'none';
+  document.getElementById('view-operator').classList.add('active');
+  document.getElementById('view-projector').classList.remove('active');
+  renderSidebar();
+  renderMain();
+}
+function goToProjector(){
+  document.getElementById('view-landing').style.display = 'none';
+  document.getElementById('view-operator').classList.remove('active');
+  document.getElementById('view-projector').classList.add('active');
+  setupBroadcastReceiver();
+  renderProjectorFromState(); // por si ya hay estado guardado
+}
+function openProjectorWindow(){
+  const url = window.location.href.split('#')[0] + '#projector';
+  window.open(url, '_blank', 'noopener');
+}
+
+// Si la URL trae #projector (ventana abierta aparte), ir directo a esa vista
+window.addEventListener('load', () => {
+  loadSongs();
+  loadSetlist();
+  if (window.location.hash === '#projector'){
+    goToProjector();
+  }
+});
+
+/* =========================================================================
+   COMUNICACIÓN OPERADOR -> PROYECCIÓN (BroadcastChannel, misma máquina)
+   ========================================================================= */
+function getChannel(){
+  if (!bc){ bc = new BroadcastChannel(PROJECTOR_CHANNEL); }
+  return bc;
+}
+function broadcastLine(text){
+  getChannel().postMessage({ type:'line', text });
+}
+function setupBroadcastReceiver(){
+  const ch = getChannel();
+  ch.onmessage = (ev) => {
+    if (ev.data && ev.data.type === 'line'){
+      renderProjectorLine(ev.data.text);
+    }
+  };
+}
+function renderProjectorLine(text){
+  const el = document.getElementById('projector-line');
+  el.classList.add('fade');
+  setTimeout(() => {
+    if (text && text.trim()){
+      el.textContent = text;
+      el.classList.remove('projector-empty');
+    } else {
+      el.textContent = 'Esperando canción…';
+      el.classList.add('projector-empty');
+    }
+    el.classList.remove('fade');
+  }, 180);
+}
+function renderProjectorFromState(){
+  const song = songs.find(s => s.id === currentSongId);
+  if (!song){ renderProjectorLine(''); return; }
+  const cantables = song.lines.filter(l => !l.isTag);
+  const line = cantables[currentLineIndex];
+  renderProjectorLine(line ? line.text : '');
+}
+
+document.addEventListener('keydown', (e) => {
+  if (document.getElementById('view-projector').classList.contains('active') && e.key === 'Escape'){
+    showLanding();
+  }
+});
+
+/* =========================================================================
+   GESTIÓN DE CANCIONES
+   ========================================================================= */
+function openAddSongModal(){
+  document.getElementById('input-title').value = '';
+  document.getElementById('input-lyrics').value = '';
+  document.getElementById('input-keep-tags').checked = true;
+  document.getElementById('modal-add').classList.add('active');
+}
+function closeAddSongModal(){
+  document.getElementById('modal-add').classList.remove('active');
+}
+
+// Detecta líneas que son etiquetas estructurales como "Coro:", "Verso 2:", "Puente"
+function isStructuralTag(line){
+  const t = line.trim();
+  if (!t) return false;
+  const patterns = [
+    /^coro\s*\d*\s*:?$/i,
+    /^verso\s*\d*\s*:?$/i,
+    /^puente\s*:?$/i,
+    /^pre[\s-]?coro\s*:?$/i,
+    /^intro\s*:?$/i,
+    /^final\s*:?$/i,
+    /^outro\s*:?$/i,
+    /^estrofa\s*\d*\s*:?$/i,
+  ];
+  return patterns.some(p => p.test(t));
+}
+
+function splitLyrics(raw, keepTags){
+  const rawLines = raw.split('\n').map(l => l.trim());
+  const result = [];
+  let idCounter = 0;
+  for (const l of rawLines){
+    if (!l) continue; // ignorar líneas vacías
+    const tag = isStructuralTag(l);
+    if (tag && !keepTags) continue; // si no se quieren mantener, se descartan del todo
+    result.push({ id: 'l' + (idCounter++), text: l, isTag: tag });
+  }
+  return result;
+}
+
+function saveSong(){
+  const title = document.getElementById('input-title').value.trim();
+  const raw = document.getElementById('input-lyrics').value;
+  const keepTags = document.getElementById('input-keep-tags').checked;
+
+  if (!title){ alert('Ponle un título a la canción.'); return; }
+  if (!raw.trim()){ alert('Pega la letra de la canción.'); return; }
+
+  const lines = splitLyrics(raw, keepTags);
+  if (lines.filter(l => !l.isTag).length === 0){
+    alert('No se detectaron líneas cantables. Revisa el texto pegado.');
+    return;
+  }
+
+  const song = { id: 's' + Date.now(), title, lines };
+  songs.push(song);
+  saveSongs();
+  closeAddSongModal();
+  renderSidebar();
+  selectSong(song.id);
+}
+
+function deleteSong(id, ev){
+  ev.stopPropagation();
+  if (!confirm('¿Eliminar esta canción? También se quitará de la lista de hoy si estaba incluida.')) return;
+  songs = songs.filter(s => s.id !== id);
+  saveSongs();
+  // quitar también del setlist, si estaba ahí
+  const wasInSet = setlist.includes(id);
+  setlist = setlist.filter(sid => sid !== id);
+  persistSetlist();
+  if (wasInSet && currentSongId === id){
+    currentSetIndex = -1;
+  }
+  if (currentSongId === id){
+    currentSongId = null;
+    currentLineIndex = -1;
+    broadcastLine('');
+  }
+  renderSidebar();
+  renderMain();
+}
+
+function selectSong(id){
+  currentSongId = id;
+  currentLineIndex = -1;
+  suggestion = { index:-1, confidence:0, text:'' };
+  // si la canción está en la lista de hoy, sincronizar la posición para que
+  // "canción siguiente/anterior" siga funcionando de forma coherente
+  const posInSet = setlist.indexOf(id);
+  currentSetIndex = posInSet;
+  renderSidebar();
+  renderMain();
+  broadcastLine('');
+}
+
+/* =========================================================================
+   NAVEGACIÓN DENTRO DE LA LISTA DE HOY (setlist)
+   ========================================================================= */
+function goToSongInSet(delta){
+  if (setlist.length === 0) return;
+  let next = currentSetIndex + delta;
+  next = Math.max(0, Math.min(setlist.length - 1, next));
+  currentSetIndex = next;
+  selectSong(setlist[next]);
+}
+
+/* =========================================================================
+   CONSTRUCTOR DE LA LISTA DE HOY (modal)
+   ========================================================================= */
+function openSetlistModal(){
+  if (songs.length === 0){
+    alert('Primero añade al menos una canción al catálogo antes de armar la lista de hoy.');
+    return;
+  }
+  setBuilderDraft = [...setlist]; // copia de trabajo; no se guarda hasta confirmar
+  renderSetBuilder();
+  document.getElementById('modal-setlist').classList.add('active');
+}
+function closeSetlistModal(){
+  document.getElementById('modal-setlist').classList.remove('active');
+}
+
+function renderSetBuilder(){
+  const catalogEl = document.getElementById('set-builder-catalog');
+  const orderEl = document.getElementById('set-builder-order');
+
+  const available = songs.filter(s => !setBuilderDraft.includes(s.id));
+  catalogEl.innerHTML = available.length
+    ? available.map(s => `
+        <div class="picker-item" onclick="addToSetBuilder('${s.id}')">
+          <span>${escapeHtml(s.title)}</span>
+          <span class="add-icon">+</span>
+        </div>`).join('')
+    : '<div class="empty-hint">Todas las canciones del catálogo ya están en la lista de hoy.</div>';
+
+  orderEl.innerHTML = setBuilderDraft.length
+    ? setBuilderDraft.map((id, i) => {
+        const song = songs.find(s => s.id === id);
+        if (!song) return '';
+        return `
+          <div class="set-order-row">
+            <span class="order-num">${i + 1}.</span>
+            <span style="flex:1;">${escapeHtml(song.title)}</span>
+            <div class="order-actions">
+              <button onclick="moveInSetBuilder(${i}, -1)" title="Subir" ${i === 0 ? 'disabled' : ''}>↑</button>
+              <button onclick="moveInSetBuilder(${i}, 1)" title="Bajar" ${i === setBuilderDraft.length - 1 ? 'disabled' : ''}>↓</button>
+              <button onclick="removeFromSetBuilder('${id}')" title="Quitar" style="color:#e0584a;">✕</button>
+            </div>
+          </div>`;
+      }).join('')
+    : '<div class="empty-hint">Aún no has agregado canciones. Haz clic en una del catálogo a la izquierda.</div>';
+}
+
+function addToSetBuilder(id){
+  setBuilderDraft.push(id);
+  renderSetBuilder();
+}
+function removeFromSetBuilder(id){
+  setBuilderDraft = setBuilderDraft.filter(sid => sid !== id);
+  renderSetBuilder();
+}
+function moveInSetBuilder(index, delta){
+  const target = index + delta;
+  if (target < 0 || target >= setBuilderDraft.length) return;
+  [setBuilderDraft[index], setBuilderDraft[target]] = [setBuilderDraft[target], setBuilderDraft[index]];
+  renderSetBuilder();
+}
+function clearSetlist(){
+  if (setBuilderDraft.length === 0) return;
+  if (!confirm('¿Vaciar toda la lista de hoy?')) return;
+  setBuilderDraft = [];
+  renderSetBuilder();
+}
+
+function saveSetlist(){
+  setlist = [...setBuilderDraft];
+  persistSetlist();
+  // si la canción actualmente en pantalla ya no está en la nueva lista, no la quitamos
+  // de la proyección (puede seguir siendo válida), solo recalculamos su posición en el set
+  currentSetIndex = setlist.indexOf(currentSongId);
+  closeSetlistModal();
+  renderSidebar();
+}
+
+
+/* =========================================================================
+   EXPORTAR / IMPORTAR CANCIONES (archivo .json)
+   ========================================================================= */
+function exportSongs(){
+  if (songs.length === 0){
+    alert('No hay canciones para exportar todavía.');
+    return;
+  }
+  const payload = {
+    formato: 'proyector-alabanzas-export',
+    version: 1,
+    exportado: new Date().toISOString(),
+    canciones: songs
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const fecha = new Date().toISOString().slice(0,10);
+  a.href = url;
+  a.download = `canciones-alabanzas-${fecha}.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function triggerImport(){
+  document.getElementById('import-file-input').click();
+}
+
+// Compara dos canciones por título normalizado + primera línea, para detectar
+// duplicados al reimportar el mismo archivo sin depender de que coincidan los IDs.
+function songFingerprint(song){
+  const title = normalize(song.title || '');
+  const firstLine = song.lines && song.lines.length ? normalize(song.lines[0].text || '') : '';
+  return title + '||' + firstLine;
+}
+
+function handleImportFile(event){
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    let data;
+    try{
+      data = JSON.parse(e.target.result);
+    }catch(err){
+      alert('Ese archivo no es un JSON válido. Asegúrate de seleccionar un archivo exportado desde esta misma herramienta.');
+      event.target.value = '';
+      return;
+    }
+
+    // Acepta tanto el formato propio ({canciones:[...]}) como un array plano de canciones,
+    // por si alguien edita el archivo a mano.
+    const incoming = Array.isArray(data) ? data : data.canciones;
+    if (!Array.isArray(incoming) || incoming.length === 0){
+      alert('El archivo no contiene canciones reconocibles.');
+      event.target.value = '';
+      return;
+    }
+
+    const existingFingerprints = new Set(songs.map(songFingerprint));
+    let added = 0, skipped = 0;
+
+    for (const raw of incoming){
+      if (!raw || !raw.title || !Array.isArray(raw.lines) || raw.lines.length === 0){
+        skipped++;
+        continue;
+      }
+      const fp = songFingerprint(raw);
+      if (existingFingerprints.has(fp)){
+        skipped++;
+        continue;
+      }
+      // Generar un ID nuevo para evitar colisiones, conservando título y líneas
+      const newSong = {
+        id: 's' + Date.now() + '_' + Math.random().toString(36).slice(2,7),
+        title: raw.title,
+        lines: raw.lines.map((l, i) => ({
+          id: 'l' + i,
+          text: l.text || '',
+          isTag: !!l.isTag
+        }))
+      };
+      songs.push(newSong);
+      existingFingerprints.add(fp);
+      added++;
+    }
+
+    saveSongs();
+    renderSidebar();
+    renderMain();
+
+    const parts = [];
+    parts.push(added === 1 ? '1 canción añadida.' : `${added} canciones añadidas.`);
+    if (skipped > 0){
+      parts.push(skipped === 1
+        ? '1 canción se omitió por estar duplicada o tener un formato inválido.'
+        : `${skipped} canciones se omitieron por estar duplicadas o tener un formato inválido.`);
+    }
+    document.getElementById('import-result-text').textContent = parts.join(' ');
+    document.getElementById('modal-import-result').classList.add('active');
+
+    event.target.value = ''; // permitir reimportar el mismo archivo si hace falta
+  };
+  reader.onerror = () => {
+    alert('No se pudo leer el archivo.');
+    event.target.value = '';
+  };
+  reader.readAsText(file);
+}
+
+function closeImportResultModal(){
+  document.getElementById('modal-import-result').classList.remove('active');
+}
+
+function renderSidebar(){
+  const el = document.getElementById('setlist-bar');
+
+  if (setlist.length === 0){
+    el.innerHTML = `
+      <div class="setlist-header">
+        <h3>Lista de hoy</h3>
+      </div>
+      <div class="setlist-empty">
+        Todavía no has armado la lista de canciones de hoy.<br><br>
+        Usa el botón <b>"Lista de hoy"</b> arriba para elegir qué se va a cantar y en qué orden, así durante el servicio solo avanzas de canción en canción sin tener que buscar en el catálogo completo.
+      </div>
+      <button class="btn primary" style="margin-top:0.6rem;" onclick="openSetlistModal()">Armar lista de hoy</button>
+      <div style="margin-top:1.2rem;border-top:1px solid var(--line);padding-top:0.8rem;">
+        <button class="link-btn" onclick="openAddSongModal()">+ Añadir canción al catálogo</button>
+      </div>
+      <div style="display:flex;gap:0.5rem;margin-top:0.8rem;">
+        <button class="btn" style="flex:1;" onclick="exportSongs()">Exportar</button>
+        <button class="btn" style="flex:1;" onclick="triggerImport()">Importar</button>
+      </div>
+      <input type="file" id="import-file-input" accept=".json,application/json" style="display:none;" onchange="handleImportFile(event)">
+    `;
+    return;
+  }
+
+  const items = setlist.map((id, i) => {
+    const song = songs.find(s => s.id === id);
+    if (!song) return ''; // por seguridad, aunque loadSetlist ya filtra esto
+    return `
+      <div class="setlist-item ${id === currentSongId ? 'active' : ''}" onclick="goToSongInSet(${i - currentSetIndex})">
+        <span class="num">${i + 1}.</span>
+        <span>${escapeHtml(song.title)}</span>
+      </div>`;
+  }).join('');
+
+  el.innerHTML = `
+    <div class="setlist-header">
+      <h3>Lista de hoy (${setlist.length})</h3>
+      <button class="link-btn" onclick="openSetlistModal()">Editar</button>
+    </div>
+    ${items}
+    <div class="setlist-nav">
+      <button class="btn" onclick="goToSongInSet(-1)" ${currentSetIndex <= 0 ? 'disabled' : ''}>← Canción anterior</button>
+      <button class="btn" onclick="goToSongInSet(1)" ${currentSetIndex >= setlist.length - 1 ? 'disabled' : ''}>Canción siguiente →</button>
+    </div>
+    <div style="margin-top:1rem;border-top:1px solid var(--line);padding-top:0.7rem;">
+      <button class="link-btn" onclick="openAddSongModal()">+ Añadir canción al catálogo</button>
+    </div>
+    <div style="display:flex;gap:0.5rem;margin-top:0.8rem;">
+      <button class="btn" style="flex:1;" onclick="exportSongs()">Exportar</button>
+      <button class="btn" style="flex:1;" onclick="triggerImport()">Importar</button>
+    </div>
+    <input type="file" id="import-file-input" accept=".json,application/json" style="display:none;" onchange="handleImportFile(event)">
+  `;
+}
+
+function escapeHtml(str){
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+/* =========================================================================
+   RENDER PANEL PRINCIPAL (OPERADOR)
+   ========================================================================= */
+function getCantables(song){
+  return song.lines.filter(l => !l.isTag);
+}
+
+function renderMain(){
+  const main = document.getElementById('op-main');
+  const song = songs.find(s => s.id === currentSongId);
+  document.getElementById('footer-song-name').textContent = song ? song.title : '';
+
+  if (!song){
+    main.innerHTML = `
+      <div class="no-song-msg">
+        <h2>Selecciona o añade una canción</h2>
+        <p>Elige una canción de la lista a la izquierda para empezar a proyectar.</p>
+      </div>`;
+    return;
+  }
+
+  const cantables = getCantables(song);
+  const currentLine = cantables[currentLineIndex];
+  const confClass = suggestion.confidence >= 0.75 ? 'high' : (suggestion.confidence >= 0.5 ? 'mid' : '');
+  const isArmed = suggestion.index >= 0 && suggestion.index !== currentLineIndex;
+
+  main.innerHTML = `
+    <div class="current-line-card">
+      <div class="label">En proyección ahora</div>
+      <div class="current-line-text">${currentLine ? escapeHtml(currentLine.text) : '— ninguna línea proyectada todavía —'}</div>
+    </div>
+
+    <div class="suggestion-card ${isArmed ? 'armed' : ''}">
+      <div class="label">
+        <span>Sugerencia por voz</span>
+        ${suggestion.index >= 0 ? `<span class="confidence-pill ${confClass}">${Math.round(suggestion.confidence*100)}% de coincidencia</span>` : ''}
+      </div>
+      <div class="suggestion-text ${suggestion.index < 0 ? 'empty' : ''}">
+        ${suggestion.index >= 0 ? escapeHtml(cantables[suggestion.index].text) : 'Activa el micrófono para recibir sugerencias mientras se canta.'}
+      </div>
+      <div class="transcript-box" id="transcript-box">Transcripción en vivo aparecerá aquí…</div>
+      <div class="suggestion-actions">
+        <button class="btn primary" id="btn-confirm" ${!isArmed ? 'disabled' : ''} onclick="confirmSuggestion()">Confirmar y proyectar →</button>
+        <button class="btn" onclick="stepLine(-1)">← Línea anterior</button>
+        <button class="btn" onclick="stepLine(1)">Línea siguiente →</button>
+      </div>
+    </div>
+
+    <div class="lines-list">
+      <div class="label">Todas las líneas</div>
+      ${song.lines.map(l => {
+        if (l.isTag){
+          return `<div class="line-row tag">${escapeHtml(l.text)}</div>`;
+        }
+        const idx = cantables.indexOf(l);
+        return `<div class="line-row ${idx === currentLineIndex ? 'current' : ''}" onclick="jumpToLine(${idx})">${escapeHtml(l.text)}</div>`;
+      }).join('')}
+    </div>
+  `;
+}
+
+function jumpToLine(idx){
+  currentLineIndex = idx;
+  suggestion = { index:-1, confidence:0, text:'' };
+  const song = songs.find(s => s.id === currentSongId);
+  const cantables = getCantables(song);
+  broadcastLine(cantables[idx] ? cantables[idx].text : '');
+  renderMain();
+}
+
+function stepLine(delta){
+  const song = songs.find(s => s.id === currentSongId);
+  if (!song) return;
+  const cantables = getCantables(song);
+  let next = currentLineIndex + delta;
+  next = Math.max(0, Math.min(cantables.length - 1, next));
+  jumpToLine(next);
+}
+
+function confirmSuggestion(){
+  if (suggestion.index < 0) return;
+  jumpToLine(suggestion.index);
+}
+
+/* =========================================================================
+   RECONOCIMIENTO DE VOZ + FUZZY MATCHING
+   ========================================================================= */
+function normalize(str){
+  return str
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // quitar acentos
+    .replace(/[^\w\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// Distancia de Levenshtein normalizada -> similitud 0..1
+function similarity(a, b){
+  a = normalize(a); b = normalize(b);
+  if (!a || !b) return 0;
+  const al = a.length, bl = b.length;
+  const dp = Array.from({length: al+1}, () => new Array(bl+1).fill(0));
+  for (let i=0;i<=al;i++) dp[i][0]=i;
+  for (let j=0;j<=bl;j++) dp[0][j]=j;
+  for (let i=1;i<=al;i++){
+    for (let j=1;j<=bl;j++){
+      if (a[i-1]===b[j-1]) dp[i][j]=dp[i-1][j-1];
+      else dp[i][j]=1+Math.min(dp[i-1][j-1], dp[i-1][j], dp[i][j-1]);
+    }
+  }
+  const dist = dp[al][bl];
+  return 1 - dist / Math.max(al, bl);
+}
+
+// Compara la transcripción contra una ventana de líneas alrededor de la actual.
+// Importante: muchas canciones repiten líneas idénticas (coros), así que ante
+// puntajes empatados o casi empatados, debe ganar la línea MÁS CERCANA a la
+// posición actual (normalmente la siguiente), nunca una repetición lejana.
+// Esto evita que el sistema "salte" todo un coro de golpe por una coincidencia
+// perfecta en una repetición más adelante.
+function findBestMatch(transcript, cantables, fromIndex){
+  const windowStart = Math.max(0, fromIndex - 1);
+  const windowEnd = Math.min(cantables.length - 1, fromIndex + 4);
+  const TIE_MARGIN = 0.03; // diferencia de score considerada "empate práctico"
+
+  let best = { index:-1, score:0 };
+  for (let i = windowStart; i <= windowEnd; i++){
+    const score = similarity(transcript, cantables[i].text);
+    if (score > best.score + TIE_MARGIN){
+      best = { index: i, score };
+    } else if (best.index >= 0 && score > best.score - TIE_MARGIN){
+      const distNew = Math.abs(i - fromIndex);
+      const distBest = Math.abs(best.index - fromIndex);
+      if (distNew < distBest){
+        best = { index: i, score };
+      }
+    } else if (score > best.score){
+      best = { index: i, score };
+    }
+  }
+  return best;
+}
+
+function setupRecognition(){
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR){
+    alert('Este navegador no soporta reconocimiento de voz. Usa Google Chrome.');
+    return null;
+  }
+  const r = new SR();
+  r.lang = 'es-ES';
+  r.continuous = true;
+  r.interimResults = true;
+
+  r.onresult = (event) => {
+    const song = songs.find(s => s.id === currentSongId);
+    if (!song) return;
+    const cantables = getCantables(song);
+    if (cantables.length === 0) return;
+
+    let transcript = '';
+    for (let i = event.resultIndex; i < event.results.length; i++){
+      transcript += event.results[i][0].transcript + ' ';
+    }
+    transcript = transcript.trim();
+    if (!transcript) return;
+
+    document.getElementById('transcript-box') &&
+      (document.getElementById('transcript-box').textContent = transcript);
+
+    const baseIndex = currentLineIndex < 0 ? 0 : currentLineIndex;
+    const match = findBestMatch(transcript, cantables, baseIndex);
+
+    if (match.index >= 0 && match.score >= 0.35){
+      suggestion = { index: match.index, confidence: Math.min(match.score, 1), text: transcript };
+      renderMain();
+    }
+  };
+
+  r.onerror = (e) => {
+    console.warn('Error de reconocimiento:', e.error);
+    if (e.error === 'not-allowed' || e.error === 'service-not-allowed'){
+      stopRecognition();
+      alert('Permiso de micrófono denegado. Habilítalo en la configuración del navegador.');
+    }
+  };
+
+  r.onend = () => {
+    // El reconocimiento de Chrome se corta solo cada cierto tiempo; si seguimos
+    // en modo "activo", lo reiniciamos automáticamente sin que el operador note nada.
+    if (recognizing){
+      try{ r.start(); }catch(e){ /* ya estaba iniciado */ }
+    }
+  };
+
+  return r;
+}
+
+function startRecognition(){
+  if (!recognition) recognition = setupRecognition();
+  if (!recognition) return;
+  recognizing = true;
+  try{ recognition.start(); }catch(e){ /* ignorar si ya estaba iniciado */ }
+  document.getElementById('mic-dot').classList.add('live');
+  document.getElementById('mic-label').textContent = 'Escuchando…';
+  document.getElementById('btn-toggle-mic').textContent = 'Apagar micrófono';
+}
+
+function stopRecognition(){
+  recognizing = false;
+  if (recognition){
+    try{ recognition.stop(); }catch(e){}
+  }
+  const dot = document.getElementById('mic-dot');
+  const label = document.getElementById('mic-label');
+  const btn = document.getElementById('btn-toggle-mic');
+  if (dot) dot.classList.remove('live');
+  if (label) label.textContent = 'Micrófono apagado';
+  if (btn) btn.textContent = 'Activar micrófono';
+}
+
+document.getElementById('btn-toggle-mic').addEventListener('click', () => {
+  if (recognizing) stopRecognition();
+  else startRecognition();
+});
+
+/* =========================================================================
+   ATAJOS DE TECLADO (vista operador)
+   ========================================================================= */
+document.addEventListener('keydown', (e) => {
+  if (!document.getElementById('view-operator').classList.contains('active')) return;
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+  if (e.code === 'Space' || e.code === 'ArrowRight'){
+    e.preventDefault();
+    if (suggestion.index >= 0 && suggestion.index !== currentLineIndex){
+      confirmSuggestion();
+    } else {
+      stepLine(1);
+    }
+  } else if (e.code === 'ArrowLeft'){
+    e.preventDefault();
+    stepLine(-1);
+  } else if (e.code === 'PageDown'){
+    e.preventDefault();
+    goToSongInSet(1);
+  } else if (e.code === 'PageUp'){
+    e.preventDefault();
+    goToSongInSet(-1);
+  }
+});
+</script>
+</body>
+</html>
