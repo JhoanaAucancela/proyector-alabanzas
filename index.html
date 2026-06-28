@@ -192,6 +192,10 @@
     margin-bottom:0.2rem;
     color:var(--ink-dim);
     border:1px solid transparent;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:0.6rem;
   }
   .song-item:hover{background:var(--bg-panel-raised);}
   .song-item.active{
@@ -200,6 +204,31 @@
     border-color:var(--accent);
     font-weight:600;
   }
+  .song-item .song-title{
+    flex:1;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .song-item .song-actions{
+    display:flex;
+    gap:0.35rem;
+    flex-shrink:0;
+  }
+  .song-item .song-actions button{
+    background:none;
+    border:none;
+    color:var(--ink-dim);
+    cursor:pointer;
+    font-size:0.95rem;
+    padding:0.15rem 0.3rem;
+    border-radius:5px;
+  }
+  .song-item .song-actions button:hover{
+    color:var(--ink-warm);
+    background:var(--bg-panel-raised);
+  }
+  .song-item .song-actions button.danger:hover{color:#e0584a;}
   .song-empty{
     color:var(--ink-dim);
     font-size:0.85rem;
@@ -611,6 +640,55 @@
     padding:0.1rem 0.3rem;
   }
   .order-actions button:hover{color:var(--ink-warm);}
+
+  /* ===================== PERSONALIZACIÓN DE COLORES ===================== */
+  .style-panel{
+    background:var(--bg-panel-raised);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:0.8rem 0.9rem;
+    display:flex;
+    flex-direction:column;
+    gap:0.6rem;
+    margin-top:0.8rem;
+  }
+  .style-panel .style-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:0.6rem;
+  }
+  .style-panel .style-row label{
+    font-size:0.82rem;
+    color:var(--ink-dim);
+  }
+  .color-input-wrap{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+  }
+  input[type=color]{
+    width:34px;
+    height:30px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    background:none;
+    cursor:pointer;
+    padding:0;
+  }
+  .swatch-row{
+    display:flex;
+    gap:0.4rem;
+    flex-wrap:wrap;
+  }
+  .swatch-preset{
+    width:22px;
+    height:22px;
+    border-radius:6px;
+    cursor:pointer;
+    border:2px solid var(--line);
+  }
+  .swatch-preset:hover{border-color:var(--accent);}
 </style>
 </head>
 <body>
@@ -674,11 +752,11 @@
   <div class="projector-exit-hint">Esc para salir</div>
 </div>
 
-<!-- ===================== MODAL AÑADIR CANCIÓN ===================== -->
+<!-- ===================== MODAL AÑADIR/EDITAR CANCIÓN ===================== -->
 <div class="modal-backdrop" id="modal-add">
   <div class="modal">
-    <h2>Añadir canción</h2>
-    <p class="hint">Pega la letra completa. El sistema la divide en líneas automáticamente por cada salto de línea, ignorando líneas vacías.</p>
+    <h2 id="modal-add-title">Añadir canción</h2>
+    <p class="hint" id="modal-add-hint">Pega la letra completa. El sistema la divide en líneas automáticamente por cada salto de línea, ignorando líneas vacías.</p>
     <label>Título</label>
     <input type="text" id="input-title" placeholder="Ej. Cuán grande es Él">
     <label>Letra completa</label>
@@ -691,7 +769,20 @@
     </div>
     <div class="modal-actions">
       <button class="btn" onclick="closeAddSongModal()">Cancelar</button>
-      <button class="btn primary" onclick="saveSong()">Guardar canción</button>
+      <button class="btn primary" id="btn-save-song" onclick="saveSong()">Guardar canción</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL CATÁLOGO DE CANCIONES (editar/eliminar) ===================== -->
+<div class="modal-backdrop" id="modal-catalog">
+  <div class="modal" style="max-width:560px;">
+    <h2>Catálogo de canciones</h2>
+    <p class="hint">Edita la letra de una canción guardada o elimínala del catálogo. Eliminar una canción también la quita de la lista de hoy si estaba incluida.</p>
+    <div id="catalog-list" style="display:flex;flex-direction:column;gap:0.4rem;max-height:420px;overflow-y:auto;"></div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeCatalogModal()">Cerrar</button>
+      <button class="btn primary" onclick="closeCatalogModal(); openAddSongModal();">+ Añadir canción nueva</button>
     </div>
   </div>
 </div>
@@ -748,6 +839,7 @@ let bc = null;
 let setlist = [];         // array de songIds en el orden de hoy
 let currentSetIndex = -1; // posición dentro de setlist
 let setBuilderDraft = []; // copia de trabajo mientras se edita el modal, sin guardar hasta confirmar
+let editingSongId = null; // si no es null, el modal "Añadir canción" está en modo edición de esta canción
 
 const SETLIST_STORAGE_KEY = 'alabanzas_setlist_v1';
 
@@ -820,13 +912,105 @@ function getChannel(){
 function broadcastLine(text){
   getChannel().postMessage({ type:'line', text });
 }
+function broadcastStyle(bgColor, textColor){
+  getChannel().postMessage({ type:'style', bgColor, textColor });
+}
 function setupBroadcastReceiver(){
   const ch = getChannel();
   ch.onmessage = (ev) => {
     if (ev.data && ev.data.type === 'line'){
       renderProjectorLine(ev.data.text);
+    } else if (ev.data && ev.data.type === 'style'){
+      aplicarColoresEnProyector(ev.data.bgColor, ev.data.textColor);
     }
   };
+  // Al abrir la pantalla de proyección, recupera el último estilo guardado
+  // (por si el operador lo configuró antes de abrir esta ventana).
+  const estiloGuardado = cargarEstiloGuardado();
+  if (estiloGuardado){
+    aplicarColoresEnProyector(estiloGuardado.bgColor, estiloGuardado.textColor);
+  }
+}
+function aplicarColoresEnProyector(bgColor, textColor){
+  const projectorView = document.getElementById('view-projector');
+  if (bgColor) projectorView.style.background = bgColor;
+  if (textColor){
+    document.getElementById('projector-line').style.color = textColor;
+  }
+}
+
+/* =========================================================================
+   PERSONALIZACIÓN DE COLORES (panel de operador)
+   ========================================================================= */
+const STYLE_STORAGE_KEY = 'alabanzas_estilo_v1';
+const ESTILO_POR_DEFECTO = { bgColor: '#161311', textColor: '#f3eade' };
+
+const PRESETS_COLOR = [
+  { bg:'#161311', text:'#f3eade', nombre:'Cálido oscuro (por defecto)' },
+  { bg:'#000000', text:'#ffffff', nombre:'Blanco sobre negro' },
+  { bg:'#ffffff', text:'#111111', nombre:'Negro sobre blanco' },
+  { bg:'#0a1a2e', text:'#f0c75e', nombre:'Dorado sobre azul noche' },
+  { bg:'#1a0f1a', text:'#e8b4d8', nombre:'Rosa sobre púrpura oscuro' },
+  { bg:'#0d1f17', text:'#9fd9b4', nombre:'Verde menta sobre verde oscuro' },
+];
+
+function cargarEstiloGuardado(){
+  try{
+    const raw = localStorage.getItem(STYLE_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  }catch(e){ return null; }
+}
+function guardarEstilo(bgColor, textColor){
+  localStorage.setItem(STYLE_STORAGE_KEY, JSON.stringify({ bgColor, textColor }));
+}
+
+function aplicarEstiloProyeccion(){
+  const fondoEl = document.getElementById('color-fondo');
+  const textoEl = document.getElementById('color-texto');
+  if (!fondoEl || !textoEl) return;
+  const bgColor = fondoEl.value;
+  const textColor = textoEl.value;
+  broadcastStyle(bgColor, textColor);
+  guardarEstilo(bgColor, textColor);
+}
+
+function aplicarPreset(bg, text){
+  const fondoEl = document.getElementById('color-fondo');
+  const textoEl = document.getElementById('color-texto');
+  if (!fondoEl || !textoEl) return;
+  fondoEl.value = bg;
+  textoEl.value = text;
+  aplicarEstiloProyeccion();
+}
+
+function restaurarEstiloPorDefecto(){
+  aplicarPreset(ESTILO_POR_DEFECTO.bgColor, ESTILO_POR_DEFECTO.textColor);
+}
+
+function renderPresets(){
+  const el = document.getElementById('presets-row');
+  if (!el) return;
+  el.innerHTML = PRESETS_COLOR.map(p => `
+    <div class="swatch-preset"
+         style="background:linear-gradient(135deg, ${p.bg} 50%, ${p.text} 50%);"
+         title="${escapeHtml(p.nombre)}"
+         onclick="aplicarPreset('${p.bg}', '${p.text}')"></div>
+  `).join('');
+}
+
+// Sincroniza los color pickers del sidebar con el último estilo guardado.
+// Se llama tras cada renderSidebar(), ya que ese panel se regenera por completo
+// cada vez que cambia la lista de hoy, y los inputs perderían su valor visual
+// (aunque el color real aplicado en el proyector siga siendo el correcto).
+function inicializarControlesDeEstilo(){
+  const guardado = cargarEstiloGuardado();
+  const fondoEl = document.getElementById('color-fondo');
+  const textoEl = document.getElementById('color-texto');
+  if (guardado && fondoEl && textoEl){
+    fondoEl.value = guardado.bgColor;
+    textoEl.value = guardado.textColor;
+  }
+  renderPresets();
 }
 function renderProjectorLine(text){
   const el = document.getElementById('projector-line');
@@ -859,13 +1043,38 @@ document.addEventListener('keydown', (e) => {
 /* =========================================================================
    GESTIÓN DE CANCIONES
    ========================================================================= */
-function openAddSongModal(){
-  document.getElementById('input-title').value = '';
-  document.getElementById('input-lyrics').value = '';
-  document.getElementById('input-keep-tags').checked = true;
+function openAddSongModal(songId){
+  const song = songId ? songs.find(s => s.id === songId) : null;
+  editingSongId = song ? song.id : null;
+
+  const modalTitle = document.getElementById('modal-add-title');
+  const hintText = document.getElementById('modal-add-hint');
+  const saveBtn = document.getElementById('btn-save-song');
+
+  if (song){
+    document.getElementById('input-title').value = song.title;
+    // Reconstruimos el texto pegado original a partir de las líneas guardadas,
+    // para que el operador pueda editarlo igual que si lo pegara de nuevo.
+    document.getElementById('input-lyrics').value = song.lines.map(l => l.text).join('\n');
+    // Si la canción tiene al menos una etiqueta guardada, asumimos que el operador
+    // quería mantenerlas; si no tiene ninguna, no forzamos la casilla.
+    document.getElementById('input-keep-tags').checked = song.lines.some(l => l.isTag);
+    if (modalTitle) modalTitle.textContent = 'Editar canción';
+    if (hintText) hintText.textContent = 'Edita el título o la letra. Al guardar, se actualiza esta misma canción (no se crea una nueva), así que se mantiene en la lista de hoy si ya estaba incluida.';
+    if (saveBtn) saveBtn.textContent = 'Guardar cambios';
+  } else {
+    document.getElementById('input-title').value = '';
+    document.getElementById('input-lyrics').value = '';
+    document.getElementById('input-keep-tags').checked = true;
+    if (modalTitle) modalTitle.textContent = 'Añadir canción';
+    if (hintText) hintText.textContent = 'Pega la letra completa. El sistema la divide en líneas automáticamente por cada salto de línea, ignorando líneas vacías.';
+    if (saveBtn) saveBtn.textContent = 'Guardar canción';
+  }
+
   document.getElementById('modal-add').classList.add('active');
 }
 function closeAddSongModal(){
+  editingSongId = null;
   document.getElementById('modal-add').classList.remove('active');
 }
 
@@ -913,6 +1122,39 @@ function saveSong(){
     return;
   }
 
+  if (editingSongId){
+    // Modo edición: actualizamos la canción existente conservando su id,
+    // para que no se pierda su posición en la lista de hoy (setlist) si ya estaba incluida.
+    const idx = songs.findIndex(s => s.id === editingSongId);
+    if (idx === -1){
+      alert('Esa canción ya no existe en el catálogo (puede que se haya eliminado). Se guardará como una canción nueva.');
+      const nuevaCancion = { id: 's' + Date.now(), title, lines };
+      songs.push(nuevaCancion);
+      saveSongs();
+      closeAddSongModal();
+      renderSidebar();
+      selectSong(nuevaCancion.id);
+      return;
+    }
+
+    const eraLaActiva = currentSongId === editingSongId;
+    songs[idx] = { id: editingSongId, title, lines };
+    saveSongs();
+    closeAddSongModal();
+    renderSidebar();
+
+    if (eraLaActiva){
+      // La letra pudo cambiar de longitud u orden; en vez de adivinar a qué línea
+      // nueva corresponde la posición anterior, reiniciamos la proyección de esta
+      // canción desde el principio para evitar mostrar una línea equivocada.
+      selectSong(editingSongId);
+    } else {
+      renderMain();
+    }
+    return;
+  }
+
+  // Modo "añadir canción nueva"
   const song = { id: 's' + Date.now(), title, lines };
   songs.push(song);
   saveSongs();
@@ -922,24 +1164,62 @@ function saveSong(){
 }
 
 function deleteSong(id, ev){
-  ev.stopPropagation();
+  if (ev) ev.stopPropagation();
   if (!confirm('¿Eliminar esta canción? También se quitará de la lista de hoy si estaba incluida.')) return;
   songs = songs.filter(s => s.id !== id);
   saveSongs();
   // quitar también del setlist, si estaba ahí
-  const wasInSet = setlist.includes(id);
   setlist = setlist.filter(sid => sid !== id);
   persistSetlist();
-  if (wasInSet && currentSongId === id){
-    currentSetIndex = -1;
-  }
+
   if (currentSongId === id){
     currentSongId = null;
+    currentSetIndex = -1;
     currentLineIndex = -1;
     broadcastLine('');
+  } else if (currentSongId){
+    // La canción eliminada pudo estar ANTES de la activa dentro del setlist,
+    // lo que recorre los índices de todas las que venían después. Recalculamos
+    // la posición real en vez de asumir que currentSetIndex sigue siendo válido.
+    currentSetIndex = setlist.indexOf(currentSongId);
   }
+
   renderSidebar();
   renderMain();
+  // si el modal del catálogo está abierto, refrescamos su lista para que no
+  // quede una fila de una canción que ya no existe
+  if (document.getElementById('modal-catalog').classList.contains('active')){
+    renderCatalogList();
+  }
+}
+
+/* =========================================================================
+   MODAL: CATÁLOGO COMPLETO DE CANCIONES (editar / eliminar)
+   ========================================================================= */
+function openCatalogModal(){
+  renderCatalogList();
+  document.getElementById('modal-catalog').classList.add('active');
+}
+function closeCatalogModal(){
+  document.getElementById('modal-catalog').classList.remove('active');
+}
+function renderCatalogList(){
+  const el = document.getElementById('catalog-list');
+  if (songs.length === 0){
+    el.innerHTML = '<div class="song-empty">Aún no hay canciones en el catálogo.</div>';
+    return;
+  }
+  el.innerHTML = songs.map(s => `
+    <div class="song-item ${s.id === currentSongId ? 'active' : ''}">
+      <span class="song-title" onclick="closeCatalogModal(); selectSong('${s.id}');" style="cursor:pointer;" title="Usar esta canción ahora">
+        ${escapeHtml(s.title)}
+      </span>
+      <span class="song-actions">
+        <button onclick="closeCatalogModal(); openAddSongModal('${s.id}');" title="Editar">✎</button>
+        <button class="danger" onclick="deleteSong('${s.id}', event)" title="Eliminar">✕</button>
+      </span>
+    </div>
+  `).join('');
 }
 
 function selectSong(id){
@@ -1162,7 +1442,35 @@ function closeImportResultModal(){
   document.getElementById('modal-import-result').classList.remove('active');
 }
 
+// Bloque de personalización de colores, reutilizado en ambas ramas de renderSidebar
+// (lista vacía y lista con canciones) para no duplicar el markup dos veces.
+function bloqueEstiloProyeccionHTML(){
+  return `
+    <div class="style-panel">
+      <h3 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink-dim);margin:0 0 0.2rem;">Apariencia de la proyección</h3>
+      <div class="style-row">
+        <label>Color de fondo</label>
+        <div class="color-input-wrap">
+          <input type="color" id="color-fondo" value="#161311" onchange="aplicarEstiloProyeccion()">
+        </div>
+      </div>
+      <div class="style-row">
+        <label>Color de letra</label>
+        <div class="color-input-wrap">
+          <input type="color" id="color-texto" value="#f3eade" onchange="aplicarEstiloProyeccion()">
+        </div>
+      </div>
+      <div class="swatch-row" id="presets-row"></div>
+      <button class="btn" style="margin-top:0.2rem;" onclick="restaurarEstiloPorDefecto()">Restaurar colores por defecto</button>
+    </div>`;
+}
+
 function renderSidebar(){
+  renderSidebarContent();
+  inicializarControlesDeEstilo();
+}
+
+function renderSidebarContent(){
   const el = document.getElementById('setlist-bar');
 
   if (setlist.length === 0){
@@ -1175,14 +1483,16 @@ function renderSidebar(){
         Usa el botón <b>"Lista de hoy"</b> arriba para elegir qué se va a cantar y en qué orden, así durante el servicio solo avanzas de canción en canción sin tener que buscar en el catálogo completo.
       </div>
       <button class="btn primary" style="margin-top:0.6rem;" onclick="openSetlistModal()">Armar lista de hoy</button>
-      <div style="margin-top:1.2rem;border-top:1px solid var(--line);padding-top:0.8rem;">
+      <div style="margin-top:1.2rem;border-top:1px solid var(--line);padding-top:0.8rem;display:flex;flex-direction:column;gap:0.4rem;">
         <button class="link-btn" onclick="openAddSongModal()">+ Añadir canción al catálogo</button>
+        <button class="link-btn" onclick="openCatalogModal()">Ver/editar catálogo completo</button>
       </div>
       <div style="display:flex;gap:0.5rem;margin-top:0.8rem;">
         <button class="btn" style="flex:1;" onclick="exportSongs()">Exportar</button>
         <button class="btn" style="flex:1;" onclick="triggerImport()">Importar</button>
       </div>
       <input type="file" id="import-file-input" accept=".json,application/json" style="display:none;" onchange="handleImportFile(event)">
+      ${bloqueEstiloProyeccionHTML()}
     `;
     return;
   }
@@ -1207,14 +1517,16 @@ function renderSidebar(){
       <button class="btn" onclick="goToSongInSet(-1)" ${currentSetIndex <= 0 ? 'disabled' : ''}>← Canción anterior</button>
       <button class="btn" onclick="goToSongInSet(1)" ${currentSetIndex >= setlist.length - 1 ? 'disabled' : ''}>Canción siguiente →</button>
     </div>
-    <div style="margin-top:1rem;border-top:1px solid var(--line);padding-top:0.7rem;">
+    <div style="margin-top:1rem;border-top:1px solid var(--line);padding-top:0.7rem;display:flex;flex-direction:column;gap:0.4rem;">
       <button class="link-btn" onclick="openAddSongModal()">+ Añadir canción al catálogo</button>
+      <button class="link-btn" onclick="openCatalogModal()">Ver/editar catálogo completo</button>
     </div>
     <div style="display:flex;gap:0.5rem;margin-top:0.8rem;">
       <button class="btn" style="flex:1;" onclick="exportSongs()">Exportar</button>
       <button class="btn" style="flex:1;" onclick="triggerImport()">Importar</button>
     </div>
     <input type="file" id="import-file-input" accept=".json,application/json" style="display:none;" onchange="handleImportFile(event)">
+    ${bloqueEstiloProyeccionHTML()}
   `;
 }
 
