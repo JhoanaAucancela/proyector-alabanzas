@@ -866,6 +866,58 @@ function saveSongs(){
 }
 
 /* =========================================================================
+   CATÁLOGO COMPARTIDO (canciones.json en el repositorio)
+   Intenta cargar canciones.json desde la misma URL base del sitio y las
+   combina con las que ya haya en localStorage, sin duplicar.
+   Si el archivo no existe o no hay internet, continúa sin error.
+   ========================================================================= */
+async function cargarCatalogoCompartido(){
+  // Construimos la URL del JSON relativa al origen del sitio, para que funcione
+  // tanto en GitHub Pages (https://usuario.github.io/repo/) como en localhost.
+  const urlBase = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/');
+  const urlJson = urlBase + 'canciones.json';
+
+  try{
+    const resp = await fetch(urlJson, { cache: 'no-cache' });
+    if (!resp.ok) return; // archivo no encontrado todavía — es normal la primera vez
+
+    const data = await resp.json();
+    const incoming = Array.isArray(data) ? data : data.canciones;
+    if (!Array.isArray(incoming) || incoming.length === 0) return;
+
+    // Reutilizamos la misma lógica de deduplicación del botón "Importar":
+    // fingerprint por título + primera línea normalizada para no duplicar
+    // aunque los IDs sean distintos entre máquinas.
+    const existingFps = new Set(songs.map(songFingerprint));
+    let added = 0;
+
+    for (const raw of incoming){
+      if (!raw || !raw.title || !Array.isArray(raw.lines) || raw.lines.length === 0) continue;
+      const fp = songFingerprint(raw);
+      if (existingFps.has(fp)) continue;
+      songs.push({
+        id: 's' + Date.now() + '_' + Math.random().toString(36).slice(2,7),
+        title: raw.title,
+        lines: raw.lines.map((l, i) => ({ id: 'l' + i, text: l.text || '', isTag: !!l.isTag }))
+      });
+      existingFps.add(fp);
+      added++;
+    }
+
+    if (added > 0){
+      saveSongs();
+      // Si el operador ya está en el panel cuando esto termina (poco probable
+      // dado que ocurre al inicio, pero por seguridad), refrescamos el sidebar.
+      renderSidebar();
+    }
+  }catch(e){
+    // Errores de red, JSON inválido, CORS en localhost, etc.
+    // No mostramos nada al usuario: si falla, simplemente usa lo que tiene local.
+    console.log('Catálogo compartido no disponible:', e.message);
+  }
+}
+
+/* =========================================================================
    NAVEGACIÓN ENTRE VISTAS
    ========================================================================= */
 function showLanding(){
@@ -893,14 +945,51 @@ function openProjectorWindow(){
   window.open(url, '_blank', 'noopener');
 }
 
-// Si la URL trae #projector (ventana abierta aparte), ir directo a esa vista
-window.addEventListener('load', () => {
+// Si la URL trae #projector (ventana abierta aparte), ir directo a esa vista.
+// En caso contrario, primero cargamos lo local y luego intentamos sincronizar
+// el catálogo compartido desde canciones.json en el repositorio.
+window.addEventListener('load', async () => {
   loadSongs();
   loadSetlist();
+
   if (window.location.hash === '#projector'){
     goToProjector();
+    return;
   }
+
+  // Mostramos la landing inmediatamente con lo que ya haya en local,
+  // y en paralelo intentamos bajar el catálogo compartido.
+  // Así el operador no espera: si la descarga es rápida, el catálogo
+  // aparece antes de que entre al panel; si tarda, ya lo tendrá listo.
+  mostrarIndicadorCarga(true);
+  await cargarCatalogoCompartido();
+  mostrarIndicadorCarga(false);
 });
+
+function mostrarIndicadorCarga(visible){
+  let el = document.getElementById('indicador-sync');
+  if (!el){
+    el = document.createElement('div');
+    el.id = 'indicador-sync';
+    el.style.cssText = `
+      position:fixed; bottom:1.2rem; right:1.4rem;
+      background:var(--bg-panel); border:1px solid var(--line);
+      border-radius:8px; padding:0.5rem 0.9rem;
+      font-size:0.78rem; color:var(--ink-dim);
+      font-family:var(--font-body); z-index:99;
+      transition:opacity .3s ease;
+    `;
+    document.body.appendChild(el);
+  }
+  if (visible){
+    el.textContent = '↓ Sincronizando catálogo…';
+    el.style.opacity = '1';
+    el.style.display = 'block';
+  } else {
+    el.style.opacity = '0';
+    setTimeout(() => { el.style.display = 'none'; }, 300);
+  }
+}
 
 /* =========================================================================
    COMUNICACIÓN OPERADOR -> PROYECCIÓN (BroadcastChannel, misma máquina)
