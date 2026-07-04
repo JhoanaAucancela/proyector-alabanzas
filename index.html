@@ -641,6 +641,136 @@
   }
   .order-actions button:hover{color:var(--ink-warm);}
 
+  /* ===================== PESTAÑAS DEL MODAL DE SET ===================== */
+  .sb-tabs{
+    display:flex;
+    gap:0.3rem;
+    background:var(--bg-deep);
+    border-radius:8px;
+    padding:0.2rem;
+    margin-bottom:0.8rem;
+  }
+  .sb-tab{
+    flex:1;
+    background:none;
+    border:none;
+    color:var(--ink-dim);
+    padding:0.5rem 0.6rem;
+    border-radius:6px;
+    font-size:0.83rem;
+    cursor:pointer;
+    font-family:var(--font-body);
+    transition:background .12s ease, color .12s ease;
+  }
+  .sb-tab.active{
+    background:var(--bg-panel-raised);
+    color:var(--ink-warm);
+    font-weight:600;
+  }
+
+  /* ===================== BUSCADOR (modal set + modal catálogo) ===================== */
+  .search-input-wrap{
+    position:relative;
+    margin-bottom:0.5rem;
+  }
+  .search-input-wrap input{
+    width:100%;
+    background:var(--bg-deep);
+    border:1px solid var(--line);
+    border-radius:7px;
+    color:var(--ink-warm);
+    font-family:var(--font-body);
+    font-size:0.88rem;
+    padding:0.45rem 0.7rem 0.45rem 2rem;
+  }
+  .search-input-wrap input:focus{outline:1px solid var(--accent);}
+  .search-input-wrap::before{
+    content:'🔍';
+    position:absolute;
+    left:0.5rem;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:0.75rem;
+    pointer-events:none;
+  }
+
+  /* ===================== PLAYLISTS ===================== */
+  .playlist-item{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    padding:0.55rem 0.6rem;
+    border-radius:7px;
+    cursor:pointer;
+    color:var(--ink-warm);
+    font-size:0.88rem;
+    border:1px solid transparent;
+    margin-bottom:0.25rem;
+  }
+  .playlist-item:hover{background:var(--bg-panel-raised);}
+  .playlist-item .pl-name{flex:1;}
+  .playlist-item .pl-count{
+    font-size:0.75rem;
+    color:var(--ink-dim);
+    flex-shrink:0;
+  }
+  .playlist-item .pl-actions{
+    display:flex;
+    gap:0.2rem;
+    flex-shrink:0;
+  }
+  .playlist-item .pl-actions button{
+    background:none;
+    border:none;
+    color:var(--ink-dim);
+    cursor:pointer;
+    font-size:0.85rem;
+    padding:0.1rem 0.3rem;
+    border-radius:4px;
+  }
+  .playlist-item .pl-actions button:hover{color:var(--ink-warm);}
+  .playlist-item .pl-actions button.danger:hover{color:#e0584a;}
+  .pl-create-row{
+    display:flex;
+    gap:0.4rem;
+    margin-top:0.5rem;
+  }
+  .pl-create-row input{
+    flex:1;
+    background:var(--bg-deep);
+    border:1px solid var(--line);
+    border-radius:7px;
+    color:var(--ink-warm);
+    font-family:var(--font-body);
+    font-size:0.85rem;
+    padding:0.4rem 0.6rem;
+  }
+  .pl-create-row input:focus{outline:1px solid var(--accent);}
+
+  /* Panel de songs de una playlist seleccionada */
+  .pl-detail-header{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    margin-bottom:0.5rem;
+  }
+  .pl-detail-header h4{
+    flex:1;
+    font-size:0.82rem;
+    color:var(--ink-warm);
+    margin:0;
+  }
+  .link-btn-small{
+    background:none;
+    border:none;
+    color:var(--accent);
+    font-size:0.75rem;
+    cursor:pointer;
+    padding:0;
+    text-decoration:underline;
+    font-family:var(--font-body);
+  }
+
   /* ===================== PERSONALIZACIÓN DE COLORES ===================== */
   .style-panel{
     background:var(--bg-panel-raised);
@@ -779,7 +909,10 @@
   <div class="modal" style="max-width:560px;">
     <h2>Catálogo de canciones</h2>
     <p class="hint">Edita la letra de una canción guardada o elimínala del catálogo. Eliminar una canción también la quita de la lista de hoy si estaba incluida.</p>
-    <div id="catalog-list" style="display:flex;flex-direction:column;gap:0.4rem;max-height:420px;overflow-y:auto;"></div>
+    <div class="search-input-wrap" style="margin-bottom:0.8rem;">
+      <input type="text" id="catalog-search-input" placeholder="Buscar por título…" oninput="renderCatalogList()">
+    </div>
+    <div id="catalog-list" style="display:flex;flex-direction:column;gap:0.4rem;max-height:380px;overflow-y:auto;"></div>
     <div class="modal-actions">
       <button class="btn" onclick="closeCatalogModal()">Cerrar</button>
       <button class="btn primary" onclick="closeCatalogModal(); openAddSongModal();">+ Añadir canción nueva</button>
@@ -789,19 +922,50 @@
 
 <!-- ===================== MODAL CONSTRUCTOR DE SET DE SERVICIO ===================== -->
 <div class="modal-backdrop" id="modal-setlist">
-  <div class="modal" style="max-width:700px;">
+  <div class="modal" style="max-width:740px;">
     <h2>Lista de alabanzas de hoy</h2>
-    <p class="hint">Elige las canciones que se van a cantar y el orden. Esta lista es la que verás durante el servicio para ir avanzando de canción en canción.</p>
+    <p class="hint">Añade canciones a la lista de hoy usando el buscador o cargando una playlist guardada.</p>
+
     <div class="set-builder-columns">
-      <div class="set-builder-col">
-        <h4>Catálogo completo</h4>
-        <div id="set-builder-catalog"></div>
+
+      <!-- Columna izquierda: pestañas Buscador / Playlists -->
+      <div class="set-builder-col" style="display:flex;flex-direction:column;gap:0;">
+
+        <div class="sb-tabs">
+          <button class="sb-tab active" id="sbtab-buscar" onclick="sbCambiarTab('buscar')">🔍 Buscador</button>
+          <button class="sb-tab" id="sbtab-playlists" onclick="sbCambiarTab('playlists')">🎵 Playlists</button>
+        </div>
+
+        <!-- Panel: Buscador -->
+        <div id="sbpanel-buscar" style="display:flex;flex-direction:column;flex:1;overflow:hidden;">
+          <div class="search-input-wrap">
+            <input type="text" id="sb-search-input" placeholder="Buscar por título…" oninput="renderSbBusqueda()">
+          </div>
+          <div id="set-builder-catalog" style="flex:1;overflow-y:auto;"></div>
+        </div>
+
+        <!-- Panel: Playlists -->
+        <div id="sbpanel-playlists" style="display:none;flex-direction:column;flex:1;overflow:hidden;">
+          <div id="sb-playlists-lista" style="flex:1;overflow-y:auto;"></div>
+          <div class="pl-create-row">
+            <input type="text" id="sb-nueva-playlist-nombre" placeholder="Nombre de nueva playlist…" onkeydown="if(event.key==='Enter') sbCrearPlaylist()">
+            <button class="btn primary" style="padding:0.4rem 0.8rem;font-size:0.82rem;" onclick="sbCrearPlaylist()">+ Crear</button>
+          </div>
+        </div>
+
       </div>
-      <div class="set-builder-col">
+
+      <!-- Columna derecha: orden de hoy (siempre visible) -->
+      <div class="set-builder-col" style="display:flex;flex-direction:column;gap:0;">
         <h4>Orden de hoy</h4>
-        <div id="set-builder-order"></div>
+        <div id="set-builder-order" style="flex:1;overflow-y:auto;"></div>
+        <div style="margin-top:0.5rem;padding-top:0.5rem;border-top:1px solid var(--line);">
+          <button class="link-btn-small" onclick="sbGuardarComoPlaylist()">💾 Guardar lista actual como playlist…</button>
+        </div>
       </div>
+
     </div>
+
     <div class="modal-actions">
       <button class="btn" onclick="clearSetlist()">Vaciar lista</button>
       <button class="btn" onclick="closeSetlistModal()">Cancelar</button>
@@ -827,6 +991,7 @@
    ========================================================================= */
 const STORAGE_KEY = 'alabanzas_songs_v1';
 const PROJECTOR_CHANNEL = 'alabanzas_projector_v1';
+const PLAYLISTS_KEY = 'alabanzas_playlists_v1';
 
 let songs = [];          // [{id, title, lines: [{id, text, isTag}]}]
 let currentSongId = null;
@@ -840,6 +1005,9 @@ let setlist = [];         // array de songIds en el orden de hoy
 let currentSetIndex = -1; // posición dentro de setlist
 let setBuilderDraft = []; // copia de trabajo mientras se edita el modal, sin guardar hasta confirmar
 let editingSongId = null; // si no es null, el modal "Añadir canción" está en modo edición de esta canción
+let playlists = [];       // [{id, nombre, songIds:[]}]
+let sbTabActual = 'buscar'; // pestaña activa dentro del modal de set
+let sbPlaylistDetalleId = null; // id de la playlist cuyo detalle está abierto (null = vista de lista)
 
 const SETLIST_STORAGE_KEY = 'alabanzas_setlist_v1';
 
@@ -951,6 +1119,7 @@ function openProjectorWindow(){
 window.addEventListener('load', async () => {
   loadSongs();
   loadSetlist();
+  loadPlaylists();
 
   if (window.location.hash === '#projector'){
     goToProjector();
@@ -1286,6 +1455,8 @@ function deleteSong(id, ev){
    MODAL: CATÁLOGO COMPLETO DE CANCIONES (editar / eliminar)
    ========================================================================= */
 function openCatalogModal(){
+  const input = document.getElementById('catalog-search-input');
+  if (input) input.value = '';
   renderCatalogList();
   document.getElementById('modal-catalog').classList.add('active');
 }
@@ -1294,11 +1465,24 @@ function closeCatalogModal(){
 }
 function renderCatalogList(){
   const el = document.getElementById('catalog-list');
+  const inputEl = document.getElementById('catalog-search-input');
+  const query = inputEl ? inputEl.value.trim() : '';
+
   if (songs.length === 0){
     el.innerHTML = '<div class="song-empty">Aún no hay canciones en el catálogo.</div>';
     return;
   }
-  el.innerHTML = songs.map(s => `
+
+  const filtradas = query
+    ? songs.filter(s => songMatchesQuery(s, query))
+    : songs;
+
+  if (filtradas.length === 0){
+    el.innerHTML = '<div class="song-empty">No hay resultados para esa búsqueda.</div>';
+    return;
+  }
+
+  el.innerHTML = filtradas.map(s => `
     <div class="song-item ${s.id === currentSongId ? 'active' : ''}">
       <span class="song-title" onclick="closeCatalogModal(); selectSong('${s.id}');" style="cursor:pointer;" title="Usar esta canción ahora">
         ${escapeHtml(s.title)}
@@ -1338,32 +1522,252 @@ function goToSongInSet(delta){
 /* =========================================================================
    CONSTRUCTOR DE LA LISTA DE HOY (modal)
    ========================================================================= */
+/* =========================================================================
+   MODAL DE SET: PESTAÑAS, BUSCADOR Y PLAYLISTS
+   ========================================================================= */
 function openSetlistModal(){
   if (songs.length === 0){
     alert('Primero añade al menos una canción al catálogo antes de armar la lista de hoy.');
     return;
   }
-  setBuilderDraft = [...setlist]; // copia de trabajo; no se guarda hasta confirmar
-  renderSetBuilder();
+  setBuilderDraft = [...setlist];
+  sbTabActual = 'buscar';
+  document.getElementById('sb-search-input').value = '';
   document.getElementById('modal-setlist').classList.add('active');
+  sbCambiarTab('buscar');
 }
 function closeSetlistModal(){
+  sbPlaylistDetalleId = null;
   document.getElementById('modal-setlist').classList.remove('active');
 }
 
-function renderSetBuilder(){
-  const catalogEl = document.getElementById('set-builder-catalog');
-  const orderEl = document.getElementById('set-builder-order');
+// Cambia la pestaña activa (buscador o playlists) y re-renderiza el panel
+function sbCambiarTab(tab){
+  sbTabActual = tab;
+  document.getElementById('sbtab-buscar').classList.toggle('active', tab === 'buscar');
+  document.getElementById('sbtab-playlists').classList.toggle('active', tab === 'playlists');
+  document.getElementById('sbpanel-buscar').style.display = tab === 'buscar' ? 'flex' : 'none';
+  document.getElementById('sbpanel-playlists').style.display = tab === 'playlists' ? 'flex' : 'none';
+  if (tab === 'buscar') renderSbBusqueda();
+  if (tab === 'playlists') renderSbPlaylists();
+  renderSbOrden();
+}
 
-  const available = songs.filter(s => !setBuilderDraft.includes(s.id));
-  catalogEl.innerHTML = available.length
-    ? available.map(s => `
-        <div class="picker-item" onclick="addToSetBuilder('${s.id}')">
+// Panel de buscador: filtra el catálogo por título en tiempo real
+function renderSbBusqueda(){
+  const query = (document.getElementById('sb-search-input').value || '').trim();
+  const catalogEl = document.getElementById('set-builder-catalog');
+
+  const disponibles = songs.filter(s => {
+    const yaEsta = setBuilderDraft.includes(s.id);
+    const coincide = songMatchesQuery(s, query);
+    return !yaEsta && coincide;
+  });
+
+  if (songs.length === 0){
+    catalogEl.innerHTML = '<div class="empty-hint">No hay canciones en el catálogo todavía.</div>';
+    return;
+  }
+  if (disponibles.length === 0 && query){
+    catalogEl.innerHTML = '<div class="empty-hint">No hay resultados para esa búsqueda.</div>';
+    return;
+  }
+  if (disponibles.length === 0){
+    catalogEl.innerHTML = '<div class="empty-hint">Todas las canciones ya están en la lista de hoy.</div>';
+    return;
+  }
+
+  catalogEl.innerHTML = disponibles.map(s => `
+    <div class="picker-item" onclick="addToSetBuilder('${s.id}')">
+      <span>${escapeHtml(s.title)}</span>
+      <span class="add-icon">+</span>
+    </div>`).join('');
+}
+
+// Panel de playlists: alterna entre la lista de playlists y el detalle de una
+function renderSbPlaylists(){
+  if (sbPlaylistDetalleId){
+    renderSbPlaylistDetalle(sbPlaylistDetalleId);
+  } else {
+    renderSbPlaylistsLista();
+  }
+}
+
+// Vista principal: lista todas las playlists
+function renderSbPlaylistsLista(){
+  const el = document.getElementById('sb-playlists-lista');
+  if (playlists.length === 0){
+    el.innerHTML = '<div class="empty-hint">Aún no tienes playlists. Crea una con el campo de abajo, o usa "Guardar lista actual como playlist" en la columna de la derecha.</div>';
+    return;
+  }
+  el.innerHTML = playlists.map(pl => {
+    const count = pl.songIds.filter(id => songs.find(s => s.id === id)).length;
+    return `
+      <div class="playlist-item">
+        <span class="pl-name" onclick="sbAbrirDetallePlaylist('${pl.id}')" title="Ver y editar canciones">
+          ${escapeHtml(pl.nombre)}
+        </span>
+        <span class="pl-count">${count} canción${count !== 1 ? 'es' : ''}</span>
+        <div class="pl-actions">
+          <button onclick="sbAbrirDetallePlaylist('${pl.id}')" title="Editar canciones">✎</button>
+          <button onclick="sbCargarPlaylistEnLista('${pl.id}')" title="Añadir toda la playlist a la lista de hoy">＋</button>
+          <button class="danger" onclick="sbEliminarPlaylist('${pl.id}')" title="Eliminar playlist">✕</button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+// Abre la vista de detalle de una playlist (buscador + lista de sus canciones)
+function sbAbrirDetallePlaylist(playlistId){
+  sbPlaylistDetalleId = playlistId;
+  renderSbPlaylistDetalle(playlistId);
+}
+
+// Vista de detalle: muestra las canciones de la playlist con buscador para añadir más
+function renderSbPlaylistDetalle(playlistId){
+  const pl = playlists.find(p => p.id === playlistId);
+  if (!pl){ sbPlaylistDetalleId = null; renderSbPlaylistsLista(); return; }
+
+  const el = document.getElementById('sb-playlists-lista');
+  const query = (el.querySelector('.pl-detail-search') ? el.querySelector('.pl-detail-search').value : '').trim();
+
+  // Canciones ya en la playlist (con canciones que siguen existiendo en el catálogo)
+  const enPlaylist = pl.songIds
+    .map(id => songs.find(s => s.id === id))
+    .filter(Boolean);
+
+  // Canciones del catálogo que NO están en la playlist y coinciden con la búsqueda
+  const disponibles = songs.filter(s =>
+    !pl.songIds.includes(s.id) && songMatchesQuery(s, query)
+  );
+
+  el.innerHTML = `
+    <div class="pl-detail-header">
+      <button class="link-btn-small" onclick="sbCerrarDetallePlaylist()">← Volver</button>
+      <h4>${escapeHtml(pl.nombre)}</h4>
+      <button class="btn primary" style="padding:0.3rem 0.7rem;font-size:0.78rem;"
+              onclick="sbCargarPlaylistEnLista('${pl.id}')">＋ Cargar en lista de hoy</button>
+    </div>
+
+    ${enPlaylist.length > 0 ? `
+      <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-dim);margin:0.2rem 0 0.4rem;">
+        En esta playlist (${enPlaylist.length})
+      </div>
+      ${enPlaylist.map((s, i) => `
+        <div class="set-order-row" style="font-size:0.86rem;">
+          <span class="order-num">${i + 1}.</span>
+          <span style="flex:1;">${escapeHtml(s.title)}</span>
+          <div class="order-actions">
+            <button onclick="sbQuitarDePlPlaylist('${pl.id}','${s.id}')" title="Quitar de la playlist" style="color:#e0584a;">✕</button>
+          </div>
+        </div>`).join('')}
+    ` : '<div class="empty-hint" style="margin-bottom:0.5rem;">Esta playlist no tiene canciones todavía.</div>'}
+
+    <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-dim);margin:0.6rem 0 0.3rem;">
+      Añadir del catálogo
+    </div>
+    <div class="search-input-wrap" style="margin-bottom:0.4rem;">
+      <input class="pl-detail-search" type="text" placeholder="Buscar por título…"
+             value="${escapeHtml(query)}"
+             oninput="renderSbPlaylistDetalle('${pl.id}')">
+    </div>
+    ${disponibles.length === 0
+      ? `<div class="empty-hint">${query ? 'Sin resultados para esa búsqueda.' : 'Todas las canciones del catálogo ya están en la playlist.'}</div>`
+      : disponibles.map(s => `
+        <div class="picker-item" onclick="sbAnadirAPlaylist('${pl.id}','${s.id}')">
           <span>${escapeHtml(s.title)}</span>
           <span class="add-icon">+</span>
         </div>`).join('')
-    : '<div class="empty-hint">Todas las canciones del catálogo ya están en la lista de hoy.</div>';
+    }
+  `;
 
+  // Re-enfocamos el input para que el usuario pueda seguir escribiendo sin clic extra
+  const inputEl = el.querySelector('.pl-detail-search');
+  if (inputEl && query) { inputEl.focus(); inputEl.setSelectionRange(query.length, query.length); }
+}
+
+function sbCerrarDetallePlaylist(){
+  sbPlaylistDetalleId = null;
+  renderSbPlaylistsLista();
+}
+
+// Añade una canción a una playlist
+function sbAnadirAPlaylist(playlistId, songId){
+  const pl = playlists.find(p => p.id === playlistId);
+  if (!pl || pl.songIds.includes(songId)) return;
+  pl.songIds.push(songId);
+  savePlaylists();
+  renderSbPlaylistDetalle(playlistId);
+}
+
+// Quita una canción de una playlist
+function sbQuitarDePlPlaylist(playlistId, songId){
+  const pl = playlists.find(p => p.id === playlistId);
+  if (!pl) return;
+  pl.songIds = pl.songIds.filter(id => id !== songId);
+  savePlaylists();
+  renderSbPlaylistDetalle(playlistId);
+}
+
+// Carga todas las canciones de una playlist en el draft de la lista de hoy
+function sbCargarPlaylistEnLista(playlistId){
+  const pl = playlists.find(p => p.id === playlistId);
+  if (!pl) return;
+  let added = 0;
+  for (const songId of pl.songIds){
+    if (!setBuilderDraft.includes(songId) && songs.find(s => s.id === songId)){
+      setBuilderDraft.push(songId);
+      added++;
+    }
+  }
+  if (added === 0){
+    alert('Todas las canciones de esa playlist ya están en la lista de hoy.');
+    return;
+  }
+  renderSbOrden();
+  // Si estamos en la vista de detalle, también actualizamos el buscador
+  // para que las canciones recién cargadas no aparezcan como "disponibles"
+  if (sbPlaylistDetalleId) renderSbPlaylistDetalle(sbPlaylistDetalleId);
+}
+
+function sbEliminarPlaylist(playlistId){
+  const pl = playlists.find(p => p.id === playlistId);
+  if (!pl) return;
+  if (!confirm(`¿Eliminar la playlist "${pl.nombre}"? Las canciones del catálogo no se borran.`)) return;
+  playlists = playlists.filter(p => p.id !== playlistId);
+  savePlaylists();
+  renderSbPlaylists();
+}
+
+function sbCrearPlaylist(){
+  const input = document.getElementById('sb-nueva-playlist-nombre');
+  const nombre = input.value.trim();
+  if (!nombre){ input.focus(); return; }
+  const nueva = { id: 'pl' + Date.now(), nombre, songIds: [] };
+  playlists.push(nueva);
+  savePlaylists();
+  input.value = '';
+  renderSbPlaylists();
+}
+
+// Guarda la lista de hoy actual como una playlist nueva
+function sbGuardarComoPlaylist(){
+  if (setBuilderDraft.length === 0){
+    alert('La lista de hoy está vacía. Añade canciones primero.');
+    return;
+  }
+  const nombre = prompt('Nombre para esta playlist:');
+  if (!nombre || !nombre.trim()) return;
+  const nueva = { id: 'pl' + Date.now(), nombre: nombre.trim(), songIds: [...setBuilderDraft] };
+  playlists.push(nueva);
+  savePlaylists();
+  alert(`Playlist "${nueva.nombre}" guardada con ${nueva.songIds.length} canciones.`);
+  if (sbTabActual === 'playlists') renderSbPlaylists();
+}
+
+// Panel de orden de hoy (columna derecha, siempre visible)
+function renderSbOrden(){
+  const orderEl = document.getElementById('set-builder-order');
   orderEl.innerHTML = setBuilderDraft.length
     ? setBuilderDraft.map((id, i) => {
         const song = songs.find(s => s.id === id);
@@ -1371,7 +1775,7 @@ function renderSetBuilder(){
         return `
           <div class="set-order-row">
             <span class="order-num">${i + 1}.</span>
-            <span style="flex:1;">${escapeHtml(song.title)}</span>
+            <span style="flex:1;font-size:0.88rem;">${escapeHtml(song.title)}</span>
             <div class="order-actions">
               <button onclick="moveInSetBuilder(${i}, -1)" title="Subir" ${i === 0 ? 'disabled' : ''}>↑</button>
               <button onclick="moveInSetBuilder(${i}, 1)" title="Bajar" ${i === setBuilderDraft.length - 1 ? 'disabled' : ''}>↓</button>
@@ -1379,38 +1783,61 @@ function renderSetBuilder(){
             </div>
           </div>`;
       }).join('')
-    : '<div class="empty-hint">Aún no has agregado canciones. Haz clic en una del catálogo a la izquierda.</div>';
+    : '<div class="empty-hint">Aún no has agregado canciones.</div>';
 }
 
 function addToSetBuilder(id){
+  if (setBuilderDraft.includes(id)) return;
   setBuilderDraft.push(id);
-  renderSetBuilder();
+  if (sbTabActual === 'buscar') renderSbBusqueda();
+  if (sbTabActual === 'playlists') renderSbPlaylists();
+  renderSbOrden();
 }
 function removeFromSetBuilder(id){
   setBuilderDraft = setBuilderDraft.filter(sid => sid !== id);
-  renderSetBuilder();
+  if (sbTabActual === 'buscar') renderSbBusqueda();
+  if (sbTabActual === 'playlists') renderSbPlaylists();
+  renderSbOrden();
 }
 function moveInSetBuilder(index, delta){
   const target = index + delta;
   if (target < 0 || target >= setBuilderDraft.length) return;
   [setBuilderDraft[index], setBuilderDraft[target]] = [setBuilderDraft[target], setBuilderDraft[index]];
-  renderSetBuilder();
+  renderSbOrden();
 }
 function clearSetlist(){
   if (setBuilderDraft.length === 0) return;
   if (!confirm('¿Vaciar toda la lista de hoy?')) return;
   setBuilderDraft = [];
-  renderSetBuilder();
+  if (sbTabActual === 'buscar') renderSbBusqueda();
+  if (sbTabActual === 'playlists') renderSbPlaylists();
+  renderSbOrden();
 }
 
 function saveSetlist(){
   setlist = [...setBuilderDraft];
   persistSetlist();
-  // si la canción actualmente en pantalla ya no está en la nueva lista, no la quitamos
-  // de la proyección (puede seguir siendo válida), solo recalculamos su posición en el set
   currentSetIndex = setlist.indexOf(currentSongId);
   closeSetlistModal();
   renderSidebar();
+}
+
+/* =========================================================================
+   PLAYLISTS: PERSISTENCIA
+   ========================================================================= */
+function loadPlaylists(){
+  try{
+    const raw = localStorage.getItem(PLAYLISTS_KEY);
+    playlists = raw ? JSON.parse(raw) : [];
+    // Limpiamos referencias a canciones que ya no existen en el catálogo
+    playlists = playlists.map(pl => ({
+      ...pl,
+      songIds: pl.songIds.filter(id => songs.some(s => s.id === id))
+    }));
+  }catch(e){ playlists = []; }
+}
+function savePlaylists(){
+  localStorage.setItem(PLAYLISTS_KEY, JSON.stringify(playlists));
 }
 
 
@@ -1719,6 +2146,20 @@ function normalize(str){
     .replace(/[^\w\s]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+// Devuelve true si la canción coincide con la query buscando en título Y en la letra.
+// Usa normalize() para ignorar acentos, mayúsculas y puntuación.
+function songMatchesQuery(song, query){
+  if (!query) return true;
+  const q = normalize(query);
+  if (normalize(song.title).includes(q)) return true;
+  // Concatenar todas las líneas cantables (sin etiquetas) y buscar ahí
+  const letra = song.lines
+    .filter(l => !l.isTag)
+    .map(l => l.text)
+    .join(' ');
+  return normalize(letra).includes(q);
 }
 
 // Distancia de Levenshtein normalizada -> similitud 0..1
