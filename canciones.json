@@ -1,7 +1,7 @@
 {
   "formato": "proyector-alabanzas-export",
   "version": 1,
-  "exportado": "2026-07-04T15:37:14.132Z",
+  "exportado": "2026-07-12T04:17:15.063Z",
   "canciones": [
     {
       "id": "s1782651662655",
@@ -5606,6 +5606,3732 @@
         {
           "id": "l31",
           "text": "Ven, Señor Jesús",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783255566368",
+      "title": "En el principio el espíritu de Dios",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "En el principio el Espíritu de Dios (¿Qué hacía?)",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "Se movía sobre las aguas",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "En el principio el Espíritu de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "Se movía sobre las aguas",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "Pero ahora se está moviendo (se está moviendo)",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Dentro de mi corazón",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "Pero ahora se está moviendo",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "Dentro de mi corazón",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "En el principio el Espíritu de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "Se movía sobre las aguas",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "En el principio el Espíritu de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "Se movía sobre las aguas",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "Pero ahora se está moviendo",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "Dentro de mi corazón",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "Pero ahora se está moviendo",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "Dentro de mi corazón",
+          "isTag": false
+        },
+        {
+          "id": "l16",
+          "text": "En el principio el Espíritu de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l17",
+          "text": "Se movía sobre las aguas",
+          "isTag": false
+        },
+        {
+          "id": "l18",
+          "text": "En el principio el Espíritu de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l19",
+          "text": "Se movía sobre las aguas",
+          "isTag": false
+        },
+        {
+          "id": "l20",
+          "text": "Pero ahora se está moviendo (se está moviendo)",
+          "isTag": false
+        },
+        {
+          "id": "l21",
+          "text": "Dentro de mi corazón",
+          "isTag": false
+        },
+        {
+          "id": "l22",
+          "text": "Pero ahora se está moviendo",
+          "isTag": false
+        },
+        {
+          "id": "l23",
+          "text": "Dentro de mi corazón",
+          "isTag": false
+        },
+        {
+          "id": "l24",
+          "text": "El poder del Espíritu Santo",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783255628890",
+      "title": "Yo me alegre",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "Yo me alegré con los que me decían",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "A la casa de Jehová iremos",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "Yo me alegré con los que me decían",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "A la casa de Jehová iremos",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "Con alabanza y con danza",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Con el pandero y el arpa",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "Yo alabaré, yo alabaré",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "Yo alabaré a Jehová",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "Yo me alegré con los que me decían",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "A la casa de Jehová iremos",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "Yo me alegré con los que me decían",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "A la casa de Jehová iremos",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "Con alabanza y con danza",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "Con el pandero y el arpa",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "Yo alabaré, yo alabaré",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "Yo alabaré a Jehová",
+          "isTag": false
+        },
+        {
+          "id": "l16",
+          "text": "Mejor es un día en la casa de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l17",
+          "text": "Que mil fuera de ella",
+          "isTag": false
+        },
+        {
+          "id": "l18",
+          "text": "Mejor es un día en la casa de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l19",
+          "text": "Que mil fuera de ella",
+          "isTag": false
+        },
+        {
+          "id": "l20",
+          "text": "Yo cantaré y danzaré con el pandero",
+          "isTag": false
+        },
+        {
+          "id": "l21",
+          "text": "Le alabaré",
+          "isTag": false
+        },
+        {
+          "id": "l22",
+          "text": "Yo cantaré y danzaré con alegría",
+          "isTag": false
+        },
+        {
+          "id": "l23",
+          "text": "En la casa de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l24",
+          "text": "Todo lo que respire",
+          "isTag": false
+        },
+        {
+          "id": "l25",
+          "text": "Alabe su nombre. (Aleluya)",
+          "isTag": false
+        },
+        {
+          "id": "l26",
+          "text": "Yo me alegré con los que me decían",
+          "isTag": false
+        },
+        {
+          "id": "l27",
+          "text": "A la casa de Jehová iremos",
+          "isTag": false
+        },
+        {
+          "id": "l28",
+          "text": "Yo me alegré con los que me decían",
+          "isTag": false
+        },
+        {
+          "id": "l29",
+          "text": "A la casa de Jehová iremos",
+          "isTag": false
+        },
+        {
+          "id": "l30",
+          "text": "Con alabanza y con danza",
+          "isTag": false
+        },
+        {
+          "id": "l31",
+          "text": "Con el pandero y el arpa",
+          "isTag": false
+        },
+        {
+          "id": "l32",
+          "text": "Yo alabaré, yo alabaré",
+          "isTag": false
+        },
+        {
+          "id": "l33",
+          "text": "Yo alabaré, yo alabaré a Jehová",
+          "isTag": false
+        },
+        {
+          "id": "l34",
+          "text": "Mejor es un día en la casa de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l35",
+          "text": "Que mil fuera de ella",
+          "isTag": false
+        },
+        {
+          "id": "l36",
+          "text": "Mejor es un día en la casa de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l37",
+          "text": "Que mil fuera de ella",
+          "isTag": false
+        },
+        {
+          "id": "l38",
+          "text": "Yo cantaré y danzaré con el pandero",
+          "isTag": false
+        },
+        {
+          "id": "l39",
+          "text": "Le alabaré",
+          "isTag": false
+        },
+        {
+          "id": "l40",
+          "text": "Yo cantaré y danzaré con alegría",
+          "isTag": false
+        },
+        {
+          "id": "l41",
+          "text": "En la casa de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l42",
+          "text": "Lai, lai, lara",
+          "isTag": false
+        },
+        {
+          "id": "l43",
+          "text": "Lai, lai, lara",
+          "isTag": false
+        },
+        {
+          "id": "l44",
+          "text": "Lai, lara",
+          "isTag": false
+        },
+        {
+          "id": "l45",
+          "text": "Lai, lai, lara",
+          "isTag": false
+        },
+        {
+          "id": "l46",
+          "text": "Lai, lai",
+          "isTag": false
+        },
+        {
+          "id": "l47",
+          "text": "Somos libres",
+          "isTag": false
+        },
+        {
+          "id": "l48",
+          "text": "Lai, lara",
+          "isTag": false
+        },
+        {
+          "id": "l49",
+          "text": "Lai, lai, lara",
+          "isTag": false
+        },
+        {
+          "id": "l50",
+          "text": "Lai, lai, lai, lara",
+          "isTag": false
+        },
+        {
+          "id": "l51",
+          "text": "Lai, lai, lara, la la",
+          "isTag": false
+        },
+        {
+          "id": "l52",
+          "text": "Yo me alegré con los que me decían",
+          "isTag": false
+        },
+        {
+          "id": "l53",
+          "text": "A la casa de Jehová iremos",
+          "isTag": false
+        },
+        {
+          "id": "l54",
+          "text": "Yo me alegré con los que me decían",
+          "isTag": false
+        },
+        {
+          "id": "l55",
+          "text": "A la casa de Jehová iremos",
+          "isTag": false
+        },
+        {
+          "id": "l56",
+          "text": "Yo iré, yo iré",
+          "isTag": false
+        },
+        {
+          "id": "l57",
+          "text": "A la casa de Jehová yo iré",
+          "isTag": false
+        },
+        {
+          "id": "l58",
+          "text": "Yo iré, yo iré",
+          "isTag": false
+        },
+        {
+          "id": "l59",
+          "text": "A la casa de Jehová yo iré",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783255687422",
+      "title": "Este Corito Es",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "Este corito es para alabar a Dios",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "Si tú lo alabas también",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "Sientes lo mismo que yo",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "Este corito es para alabar a Dios",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "Si tú lo alabas también",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Sientes lo mismo que yo",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "Siento que el Espíritu Santo",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "Se está derramando en mi corazón",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "Y que una nube del cielo",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "Se está vislumbrando en la casa de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "Este corito es para alabar a Dios",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "Si tú lo alabas también",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "Sientes lo mismo que yo",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "Este corito es para alabar a Dios",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "Si tú lo alabas también",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "Sientes lo mismo que yo",
+          "isTag": false
+        },
+        {
+          "id": "l16",
+          "text": "Siento que el Espíritu Santo",
+          "isTag": false
+        },
+        {
+          "id": "l17",
+          "text": "Se está derramando en mi corazón",
+          "isTag": false
+        },
+        {
+          "id": "l18",
+          "text": "Y que una nube del cielo",
+          "isTag": false
+        },
+        {
+          "id": "l19",
+          "text": "Se está vislumbrando en la casa de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l20",
+          "text": "Yo siento que el Espíritu Santo",
+          "isTag": false
+        },
+        {
+          "id": "l21",
+          "text": "Se está derramando en mi corazón",
+          "isTag": false
+        },
+        {
+          "id": "l22",
+          "text": "Y que una nube del cielo",
+          "isTag": false
+        },
+        {
+          "id": "l23",
+          "text": "Se está vislumbrando en la casa de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l24",
+          "text": "Estaban todos unánimes en ruego y oración",
+          "isTag": false
+        },
+        {
+          "id": "l25",
+          "text": "Estaban todos unánimes en ruego y oración",
+          "isTag": false
+        },
+        {
+          "id": "l26",
+          "text": "Y desde el cielo bajó el Espíritu Santo",
+          "isTag": false
+        },
+        {
+          "id": "l27",
+          "text": "Y desde el cielo bajó el Espíritu Santo",
+          "isTag": false
+        },
+        {
+          "id": "l28",
+          "text": "Espíritu Santo lléname, lléname, lléname",
+          "isTag": false
+        },
+        {
+          "id": "l29",
+          "text": "Espíritu Santo lléname, lléname de tu amor",
+          "isTag": false
+        },
+        {
+          "id": "l30",
+          "text": "Espíritu Santo lléname, lléname, lléname",
+          "isTag": false
+        },
+        {
+          "id": "l31",
+          "text": "Espíritu Santo lléname, lléname de tu amor",
+          "isTag": false
+        },
+        {
+          "id": "l32",
+          "text": "Estaban todos unánimes en ruego y oración",
+          "isTag": false
+        },
+        {
+          "id": "l33",
+          "text": "Estaban todos unánimes en ruego y oración",
+          "isTag": false
+        },
+        {
+          "id": "l34",
+          "text": "Y desde el cielo bajó el Espíritu Santo",
+          "isTag": false
+        },
+        {
+          "id": "l35",
+          "text": "Y desde el cielo bajó el Espíritu Santo",
+          "isTag": false
+        },
+        {
+          "id": "l36",
+          "text": "Espíritu Santo lléname, lléname, lléname",
+          "isTag": false
+        },
+        {
+          "id": "l37",
+          "text": "Espíritu Santo lléname, lléname de tu amor",
+          "isTag": false
+        },
+        {
+          "id": "l38",
+          "text": "Espíritu Santo lléname, lléname, lléname",
+          "isTag": false
+        },
+        {
+          "id": "l39",
+          "text": "Espíritu Santo lléname, lléname de tu amor",
+          "isTag": false
+        },
+        {
+          "id": "l40",
+          "text": "Yo me siento pentecostal",
+          "isTag": false
+        },
+        {
+          "id": "l41",
+          "text": "Yo me siento pentecostal",
+          "isTag": false
+        },
+        {
+          "id": "l42",
+          "text": "Yo me siento pentecostal",
+          "isTag": false
+        },
+        {
+          "id": "l43",
+          "text": "De la cabeza a los pies",
+          "isTag": false
+        },
+        {
+          "id": "l44",
+          "text": "De la cabeza a los pies",
+          "isTag": false
+        },
+        {
+          "id": "l45",
+          "text": "Yo me siento pentecostal",
+          "isTag": false
+        },
+        {
+          "id": "l46",
+          "text": "De la cabeza a los pies",
+          "isTag": false
+        },
+        {
+          "id": "l47",
+          "text": "Yo siento que el Espíritu Santo",
+          "isTag": false
+        },
+        {
+          "id": "l48",
+          "text": "Se está derramando en mi corazón",
+          "isTag": false
+        },
+        {
+          "id": "l49",
+          "text": "Y que una nube del cielo",
+          "isTag": false
+        },
+        {
+          "id": "l50",
+          "text": "Se está vislumbrando en la casa de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l51",
+          "text": "Yo siento que el Espíritu Santo",
+          "isTag": false
+        },
+        {
+          "id": "l52",
+          "text": "Se está derramando en mi corazón",
+          "isTag": false
+        },
+        {
+          "id": "l53",
+          "text": "Y que una nube del cielo",
+          "isTag": false
+        },
+        {
+          "id": "l54",
+          "text": "Se está vislumbrando en la casa de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l55",
+          "text": "Espíritu Santo lléname, lléname, lléname",
+          "isTag": false
+        },
+        {
+          "id": "l56",
+          "text": "Espíritu Santo lléname, lléname de tu amor",
+          "isTag": false
+        },
+        {
+          "id": "l57",
+          "text": "Espíritu Santo lléname, lléname, lléname",
+          "isTag": false
+        },
+        {
+          "id": "l58",
+          "text": "Espíritu Santo lléname, lléname de tu amor",
+          "isTag": false
+        },
+        {
+          "id": "l59",
+          "text": "Espí-ri-tu Santo (Espíritu Santo lléname, lléname, lléname)",
+          "isTag": false
+        },
+        {
+          "id": "l60",
+          "text": "Espí-ri-tu Santo (Espíritu Santo lléname, lléname de tu amor)",
+          "isTag": false
+        },
+        {
+          "id": "l61",
+          "text": "Espí-ri-tu Santo (Espíritu Santo lléname, lléname, lléname)",
+          "isTag": false
+        },
+        {
+          "id": "l62",
+          "text": "Espí-ri-tu Santo (Espíritu Santo lléname, lléname de tu amor)",
+          "isTag": false
+        },
+        {
+          "id": "l63",
+          "text": "Lléname de tu amor",
+          "isTag": false
+        },
+        {
+          "id": "l64",
+          "text": "(Espíritu Santo lléname) Lléname de tu amor",
+          "isTag": false
+        },
+        {
+          "id": "l65",
+          "text": "(Espíritu Santo lléname) Lléname de tu amor",
+          "isTag": false
+        },
+        {
+          "id": "l66",
+          "text": "De la cabeza a las pies, lléname de tu amor",
+          "isTag": false
+        },
+        {
+          "id": "l67",
+          "text": "Llena mi corazón, lléname de tu amor",
+          "isTag": false
+        },
+        {
+          "id": "l68",
+          "text": "Derramate con poder, lléname con tu amor",
+          "isTag": false
+        },
+        {
+          "id": "l69",
+          "text": "Espí-ri-tu Santo (Espíritu Santo lléname, lléname, lléname)",
+          "isTag": false
+        },
+        {
+          "id": "l70",
+          "text": "Espí-ri-tu Santo (Espíritu Santo lléname, lléname de tu amor)",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783255747312",
+      "title": "Yo Quiero Nadar en el Río de Dios",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "Aleluya",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "No lo quiero a los tobillos",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "Ni tampoco a las rodillas",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "No lo quiero hasta los hombros",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "Yo quiero nadar",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "No lo quiero a los tobillos",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "Ni tampoco a las rodillas",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "No lo quiero hasta los hombros",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "Yo quiero nadar",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "Yo quiero nadar en el río de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "Yo quiero nadar en el río de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "Yo quiero nadar en el río de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "Yo quiero nadar",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "Yo quiero nadar en el río de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "Yo quiero nadar en el río de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "Yo quiero nadar en el río de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l16",
+          "text": "Yo quiero nadar",
+          "isTag": false
+        },
+        {
+          "id": "l17",
+          "text": "No lo quiero a los tobillos",
+          "isTag": false
+        },
+        {
+          "id": "l18",
+          "text": "Ni tampoco a las rodillas",
+          "isTag": false
+        },
+        {
+          "id": "l19",
+          "text": "No lo quiero hasta los hombros",
+          "isTag": false
+        },
+        {
+          "id": "l20",
+          "text": "Yo quiero nadar",
+          "isTag": false
+        },
+        {
+          "id": "l21",
+          "text": "No lo quiero a los tobillos",
+          "isTag": false
+        },
+        {
+          "id": "l22",
+          "text": "Ni tampoco a las rodillas",
+          "isTag": false
+        },
+        {
+          "id": "l23",
+          "text": "No lo quiero hasta los hombros",
+          "isTag": false
+        },
+        {
+          "id": "l24",
+          "text": "Yo quiero nadar",
+          "isTag": false
+        },
+        {
+          "id": "l25",
+          "text": "Yo quiero nadar en el río de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l26",
+          "text": "Yo quiero nadar en el río de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l27",
+          "text": "Yo quiero nadar en el río de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l28",
+          "text": "Yo quiero nadar",
+          "isTag": false
+        },
+        {
+          "id": "l29",
+          "text": "Yo quiero saltar en la presencia de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l30",
+          "text": "Yo quiero nadar en el presencia de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l31",
+          "text": "Yo quiero saltar en la presencia de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l32",
+          "text": "Yo quiero saltar",
+          "isTag": false
+        },
+        {
+          "id": "l33",
+          "text": "Yo quiero girar en la presencia de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l34",
+          "text": "Yo quiero girar en el presencia de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l35",
+          "text": "Yo quiero girar en la presencia de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l36",
+          "text": "Yo quiero girar",
+          "isTag": false
+        },
+        {
+          "id": "l37",
+          "text": "Yo quiero correr en la presencia de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l38",
+          "text": "Yo quiero correr en el presencia de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l39",
+          "text": "Yo quiero correr en la presencia de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l40",
+          "text": "Yo quiero correr",
+          "isTag": false
+        },
+        {
+          "id": "l41",
+          "text": "Yo quiero gritar en la presencia de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l42",
+          "text": "Yo quiero gritar en el presencia de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l43",
+          "text": "Yo quiero gritar en la presencia de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l44",
+          "text": "Yo quiero gritar",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783255776023",
+      "title": "Cantos de liberación",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "¡Oh, Dios es santo!",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "Aquí hay cantos de liberación",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "Aquí hay libertad para ti, hermano",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "Créelo, créelo, que hay libertad",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "Cantos de liberación",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Son los que me rodearán",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "Al zofar del jubileo",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "Las cadenas se abren ya",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "Cantos de liberación",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "Son los que me rodearán",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "Al zofar del jubileo",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "Las cadenas se abren ya",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "El triste tiene vino",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "El ansioso tiene paz",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "Pues hoy ha llegado tu libertad",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "El cansado tiene fuerza",
+          "isTag": false
+        },
+        {
+          "id": "l16",
+          "text": "El enfermo sanidad",
+          "isTag": false
+        },
+        {
+          "id": "l17",
+          "text": "El pecador se arrepiente",
+          "isTag": false
+        },
+        {
+          "id": "l18",
+          "text": "Y limpio queda ya",
+          "isTag": false
+        },
+        {
+          "id": "l19",
+          "text": "¡Grítalo fuerte!",
+          "isTag": false
+        },
+        {
+          "id": "l20",
+          "text": "Hay libertad",
+          "isTag": false
+        },
+        {
+          "id": "l21",
+          "text": "Oh, Santo",
+          "isTag": false
+        },
+        {
+          "id": "l22",
+          "text": "Cantos de liberación",
+          "isTag": false
+        },
+        {
+          "id": "l23",
+          "text": "Son los que me rodearán",
+          "isTag": false
+        },
+        {
+          "id": "l24",
+          "text": "Al zofar del jubileo",
+          "isTag": false
+        },
+        {
+          "id": "l25",
+          "text": "Las cadenas se abren ya",
+          "isTag": false
+        },
+        {
+          "id": "l26",
+          "text": "Cantos de liberación",
+          "isTag": false
+        },
+        {
+          "id": "l27",
+          "text": "Son los que me rodearán",
+          "isTag": false
+        },
+        {
+          "id": "l28",
+          "text": "Al zofar del jubileo",
+          "isTag": false
+        },
+        {
+          "id": "l29",
+          "text": "Las cadenas se abren ya",
+          "isTag": false
+        },
+        {
+          "id": "l30",
+          "text": "El triste tiene vino",
+          "isTag": false
+        },
+        {
+          "id": "l31",
+          "text": "El ansioso tiene paz",
+          "isTag": false
+        },
+        {
+          "id": "l32",
+          "text": "Pues hoy ha llegado tu libertad",
+          "isTag": false
+        },
+        {
+          "id": "l33",
+          "text": "El cansado tiene fuerza",
+          "isTag": false
+        },
+        {
+          "id": "l34",
+          "text": "El enfermo sanidad",
+          "isTag": false
+        },
+        {
+          "id": "l35",
+          "text": "El pecador se arrepiente",
+          "isTag": false
+        },
+        {
+          "id": "l36",
+          "text": "Y limpio queda ya",
+          "isTag": false
+        },
+        {
+          "id": "l37",
+          "text": "¿Por qué? ¡Dile!",
+          "isTag": false
+        },
+        {
+          "id": "l38",
+          "text": "Hay libertad",
+          "isTag": false
+        },
+        {
+          "id": "l39",
+          "text": "¡Ay, Señor!",
+          "isTag": false
+        },
+        {
+          "id": "l40",
+          "text": "Tú estás en medio de nosotros",
+          "isTag": false
+        },
+        {
+          "id": "l41",
+          "text": "¡Donde tú estás, hay libertad!",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783256737018",
+      "title": "Ya no soy esclavo",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "Me envuelves hoy con una canción",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "Melodia de tu amor",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "Cantas libertad",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "En mi adversidad",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "Hasta que huya el temor",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Ya no soy un esclavo del temor",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "Yo soy hijo de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "Ya no soy un esclavo del temor",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "Yo soy hijo de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "Desde el Vientre fuí escogido en tí",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "Me llamó el amor",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "De nuevo nací",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "Recibido en ti",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "Tu sangre en mi fluyó",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "Ya no soy un esclavo del temor",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "Yo soy hijo de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l16",
+          "text": "Ya no soy un esclavo del temor",
+          "isTag": false
+        },
+        {
+          "id": "l17",
+          "text": "Yo soy hijo de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l18",
+          "text": "Ya no soy un esclavo del temor",
+          "isTag": false
+        },
+        {
+          "id": "l19",
+          "text": "Yo soy hijo de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l20",
+          "text": "Ya no soy un esclavo del temor",
+          "isTag": false
+        },
+        {
+          "id": "l21",
+          "text": "Yo soy hijo de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l22",
+          "text": "Estoy rodeado por los brazos del padre",
+          "isTag": false
+        },
+        {
+          "id": "l23",
+          "text": "Estoy rodeado por canciones de libertad",
+          "isTag": false
+        },
+        {
+          "id": "l24",
+          "text": "Fuimos liberados",
+          "isTag": false
+        },
+        {
+          "id": "l25",
+          "text": "De ataduras",
+          "isTag": false
+        },
+        {
+          "id": "l26",
+          "text": "Somos los hijos y las hijas",
+          "isTag": false
+        },
+        {
+          "id": "l27",
+          "text": "Cantaremos libres",
+          "isTag": false
+        },
+        {
+          "id": "l28",
+          "text": "Hoo hoo hoooo",
+          "isTag": false
+        },
+        {
+          "id": "l29",
+          "text": "Abriste el mar para que yo camine",
+          "isTag": false
+        },
+        {
+          "id": "l30",
+          "text": "Tu amor ahogó todo el temor",
+          "isTag": false
+        },
+        {
+          "id": "l31",
+          "text": "Me rescataste y hoy yo te cantaré",
+          "isTag": false
+        },
+        {
+          "id": "l32",
+          "text": "Yo soy hijo de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l33",
+          "text": "Abriste el mar para que yo camine",
+          "isTag": false
+        },
+        {
+          "id": "l34",
+          "text": "Tu amor ahogó todo el temor",
+          "isTag": false
+        },
+        {
+          "id": "l35",
+          "text": "Me rescataste y hoy yo cantaré",
+          "isTag": false
+        },
+        {
+          "id": "l36",
+          "text": "Yo soy hijo de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l37",
+          "text": "Por tu gracia yo soy hijo de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l38",
+          "text": "Yo soy hijo de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l39",
+          "text": "Yo solo sé que yo soy su hijo",
+          "isTag": false
+        },
+        {
+          "id": "l40",
+          "text": "Y El es mi padre y mi padre me ama",
+          "isTag": false
+        },
+        {
+          "id": "l41",
+          "text": "Yo solo sé que yo soy su hijo",
+          "isTag": false
+        },
+        {
+          "id": "l42",
+          "text": "Y El es mi padre y mi padre me ama",
+          "isTag": false
+        },
+        {
+          "id": "l43",
+          "text": "Yo solo sé que yo soy su hijo",
+          "isTag": false
+        },
+        {
+          "id": "l44",
+          "text": "Y El es mi padre y mi padre me ama",
+          "isTag": false
+        },
+        {
+          "id": "l45",
+          "text": "Yo solo sé que yo soy su hijo",
+          "isTag": false
+        },
+        {
+          "id": "l46",
+          "text": "Y El es mi padre y mi padre me ama",
+          "isTag": false
+        },
+        {
+          "id": "l47",
+          "text": "Yo solo sé que yo soy su hijo",
+          "isTag": false
+        },
+        {
+          "id": "l48",
+          "text": "Y El es mi padre y mi padre me ama",
+          "isTag": false
+        },
+        {
+          "id": "l49",
+          "text": "Abriste el mar para que yo camine",
+          "isTag": false
+        },
+        {
+          "id": "l50",
+          "text": "Tu amor ahogó todo el temor",
+          "isTag": false
+        },
+        {
+          "id": "l51",
+          "text": "Me rescataste y hoy yo cantaré",
+          "isTag": false
+        },
+        {
+          "id": "l52",
+          "text": "Yo soy hijo de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l53",
+          "text": "Por tu gracia yo soy hijo de Dios",
+          "isTag": false
+        },
+        {
+          "id": "l54",
+          "text": "Yo soy hijo de Dios",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783256823140",
+      "title": "Ya Yo No Soy El Mismo",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "Desde ese día en que te conocí",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "Desde ese día comencé a vivir",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "Yo estaba muerto y tú me diste aliento cuando me faltaba",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "Desde ese día sí quiero vivir",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "Contando al mundo que hiciste por mí",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Yo estaba muerto y tú me diste aliento cuando me faltaba",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "¿Cómo podría irme lejos de tu amor?",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "No quiero apartarme de aquel que me amó",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "No quiero irme de tus brazos, mi Señor",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "Porque contigo estoy seguro",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "Y no me falta nada",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "Y hoy, ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "Ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "Y hoy, ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "Ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "Desde ese día sí quiero vivir",
+          "isTag": false
+        },
+        {
+          "id": "l16",
+          "text": "Contando al mundo que hiciste por mí",
+          "isTag": false
+        },
+        {
+          "id": "l17",
+          "text": "Yo estaba muerto y tú me diste aliento cuando me faltaba",
+          "isTag": false
+        },
+        {
+          "id": "l18",
+          "text": "¿Cómo podría irme lejos de tu amor? ¡Cántalo!",
+          "isTag": false
+        },
+        {
+          "id": "l19",
+          "text": "No quiero apartarme de aquel que me amó",
+          "isTag": false
+        },
+        {
+          "id": "l20",
+          "text": "No quiero irme de tus brazos, mi Señor",
+          "isTag": false
+        },
+        {
+          "id": "l21",
+          "text": "Porque contigo estoy seguro",
+          "isTag": false
+        },
+        {
+          "id": "l22",
+          "text": "Y no me falta nada",
+          "isTag": false
+        },
+        {
+          "id": "l23",
+          "text": "¿Cómo podría irme lejos de tu amor? ¿Cómo dice?",
+          "isTag": false
+        },
+        {
+          "id": "l24",
+          "text": "No quiero apartarme de aquel que me amó",
+          "isTag": false
+        },
+        {
+          "id": "l25",
+          "text": "No quiero irme de tus brazos, mi Señor",
+          "isTag": false
+        },
+        {
+          "id": "l26",
+          "text": "Porque contigo estoy seguro",
+          "isTag": false
+        },
+        {
+          "id": "l27",
+          "text": "Y no me falta nada, ¡mano arriba!",
+          "isTag": false
+        },
+        {
+          "id": "l28",
+          "text": "Y hoy, ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l29",
+          "text": "Ya yo no soy el mismo, ¡dice!",
+          "isTag": false
+        },
+        {
+          "id": "l30",
+          "text": "Hoy, ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l31",
+          "text": "Ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l32",
+          "text": "¡Levanta tu mano al cielo!",
+          "isTag": false
+        },
+        {
+          "id": "l33",
+          "text": "Yo no cambiaré",
+          "isTag": false
+        },
+        {
+          "id": "l34",
+          "text": "Y no, no, y yo no cambiaré",
+          "isTag": false
+        },
+        {
+          "id": "l35",
+          "text": "Esta gloria, este poder",
+          "isTag": false
+        },
+        {
+          "id": "l36",
+          "text": "Estar contigo es mi placer",
+          "isTag": false
+        },
+        {
+          "id": "l37",
+          "text": "No me quiero separar de ti",
+          "isTag": false
+        },
+        {
+          "id": "l38",
+          "text": "Y no, no, y yo no cambiaré",
+          "isTag": false
+        },
+        {
+          "id": "l39",
+          "text": "Esta gloria, este poder",
+          "isTag": false
+        },
+        {
+          "id": "l40",
+          "text": "Estar contigo es mi placer",
+          "isTag": false
+        },
+        {
+          "id": "l41",
+          "text": "Yo no me quiero separar, ¡grítalo fuerte!",
+          "isTag": false
+        },
+        {
+          "id": "l42",
+          "text": "Y no, no, y yo no cambiaré",
+          "isTag": false
+        },
+        {
+          "id": "l43",
+          "text": "Esta gloria, este poder",
+          "isTag": false
+        },
+        {
+          "id": "l44",
+          "text": "Estar contigo es mi placer",
+          "isTag": false
+        },
+        {
+          "id": "l45",
+          "text": "No me quiero separar de ti",
+          "isTag": false
+        },
+        {
+          "id": "l46",
+          "text": "Y no, y yo no cambiaré",
+          "isTag": false
+        },
+        {
+          "id": "l47",
+          "text": "Esta gloria, este poder",
+          "isTag": false
+        },
+        {
+          "id": "l48",
+          "text": "Estar contigo (es mi placer)",
+          "isTag": false
+        },
+        {
+          "id": "l49",
+          "text": "No me quiero separar de ti",
+          "isTag": false
+        },
+        {
+          "id": "l50",
+          "text": "¿Cómo podría irme lejos de tu amor?",
+          "isTag": false
+        },
+        {
+          "id": "l51",
+          "text": "No quiero apartarme de aquel que me amó",
+          "isTag": false
+        },
+        {
+          "id": "l52",
+          "text": "(No quiero irme de tus brazos, mi Señor) porque contigo estoy seguro",
+          "isTag": false
+        },
+        {
+          "id": "l53",
+          "text": "Porque contigo estoy seguro",
+          "isTag": false
+        },
+        {
+          "id": "l54",
+          "text": "Y no me falta nada",
+          "isTag": false
+        },
+        {
+          "id": "l55",
+          "text": "Y hoy, ¡levanta tu mano porque ya no eres el mismo!",
+          "isTag": false
+        },
+        {
+          "id": "l56",
+          "text": "(Ya yo no soy el mismo) ¡levanta tu mano porque Cristo te cambió!",
+          "isTag": false
+        },
+        {
+          "id": "l57",
+          "text": "(Ya yo no soy el mismo) ¡levanta tu mano, arriba!",
+          "isTag": false
+        },
+        {
+          "id": "l58",
+          "text": "Y hoy, ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l59",
+          "text": "(Ya yo no soy el mismo) ¡levanta tu mano!",
+          "isTag": false
+        },
+        {
+          "id": "l60",
+          "text": "¡Grítalo más fuerte, 2, 3!",
+          "isTag": false
+        },
+        {
+          "id": "l61",
+          "text": "Y hoy, ¡grita!",
+          "isTag": false
+        },
+        {
+          "id": "l62",
+          "text": "Ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l63",
+          "text": "(Ya yo no soy el mismo) ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l64",
+          "text": "Y hoy, ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l65",
+          "text": "Ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l66",
+          "text": "¿Qué fue lo que te pasó?",
+          "isTag": false
+        },
+        {
+          "id": "l67",
+          "text": "¿Qué fue lo que ocurrió en tu vida",
+          "isTag": false
+        },
+        {
+          "id": "l68",
+          "text": "Que al mirar atrás ya tú no eres el mismo de antes?",
+          "isTag": false
+        },
+        {
+          "id": "l69",
+          "text": "Tu vida estaba destruida",
+          "isTag": false
+        },
+        {
+          "id": "l70",
+          "text": "Pero hoy está restaurada ¿qué pasó?",
+          "isTag": false
+        },
+        {
+          "id": "l71",
+          "text": "Apareció Jesús de Nazaret",
+          "isTag": false
+        },
+        {
+          "id": "l72",
+          "text": "Apareció Jesús para cambiarlo todo",
+          "isTag": false
+        },
+        {
+          "id": "l73",
+          "text": "Apareció Jesús para cambiar tu historia para siempre",
+          "isTag": false
+        },
+        {
+          "id": "l74",
+          "text": "¿Alguien puede dar un grito para el Rey?",
+          "isTag": false
+        },
+        {
+          "id": "l75",
+          "text": "La gente te va a buscar en el lugar donde está la gente",
+          "isTag": false
+        },
+        {
+          "id": "l76",
+          "text": "Pero no te va a encontrar",
+          "isTag": false
+        },
+        {
+          "id": "l77",
+          "text": "La gente va a buscar al hombre de antes",
+          "isTag": false
+        },
+        {
+          "id": "l78",
+          "text": "Pero no lo va a encontrar",
+          "isTag": false
+        },
+        {
+          "id": "l79",
+          "text": "La gente va a buscar a la mujer triste, avergonzada",
+          "isTag": false
+        },
+        {
+          "id": "l80",
+          "text": "Pero ya no está, Cristo la levantó, Cristo la transformó",
+          "isTag": false
+        },
+        {
+          "id": "l81",
+          "text": "Todo lo hiciste nuevo y te llevaste mi lamento",
+          "isTag": false
+        },
+        {
+          "id": "l82",
+          "text": "Todo lo hiciste nuevo y te llevaste mi lamento",
+          "isTag": false
+        },
+        {
+          "id": "l83",
+          "text": "Todo lo hiciste nuevo y te llevaste mi lamento",
+          "isTag": false
+        },
+        {
+          "id": "l84",
+          "text": "Todo lo hiciste nuevo y te llevaste mi lamento, ¡vamos todos, fuerte!",
+          "isTag": false
+        },
+        {
+          "id": "l85",
+          "text": "Todo lo hiciste nuevo y te llevaste mi lamento",
+          "isTag": false
+        },
+        {
+          "id": "l86",
+          "text": "Todo lo hiciste nuevo y te llevaste mi lamento, ¡grítalo, grita!",
+          "isTag": false
+        },
+        {
+          "id": "l87",
+          "text": "Todo lo hiciste nuevo, ¡hey! y te llevaste mi lamento",
+          "isTag": false
+        },
+        {
+          "id": "l88",
+          "text": "Tú todo lo hiciste nuevo y te llevaste mi lamento, ¡mano arriba, hey!",
+          "isTag": false
+        },
+        {
+          "id": "l89",
+          "text": "Y hoy, ¡grítalo fuerte!",
+          "isTag": false
+        },
+        {
+          "id": "l90",
+          "text": "(Ya yo no soy el mismo) no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l91",
+          "text": "(Ya yo no soy el mismo) Jesús me ha levantado, ¡hey!",
+          "isTag": false
+        },
+        {
+          "id": "l92",
+          "text": "Y hoy, ¡grítalo!",
+          "isTag": false
+        },
+        {
+          "id": "l93",
+          "text": "Ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l94",
+          "text": "Ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l95",
+          "text": "No hay propuesta en este mundo",
+          "isTag": false
+        },
+        {
+          "id": "l96",
+          "text": "Que te pueda separar del amor más grande",
+          "isTag": false
+        },
+        {
+          "id": "l97",
+          "text": "No existe nada que pueda superar el amor de Jesús",
+          "isTag": false
+        },
+        {
+          "id": "l98",
+          "text": "Y ahora las propuestas vienen, vienen las tentaciones",
+          "isTag": false
+        },
+        {
+          "id": "l99",
+          "text": "Van a venir las mismas propuestas de antes",
+          "isTag": false
+        },
+        {
+          "id": "l100",
+          "text": "Pero tú no puedes porque algo pasó en ti",
+          "isTag": false
+        },
+        {
+          "id": "l101",
+          "text": "Tú no puedes porque algo te ocurrió",
+          "isTag": false
+        },
+        {
+          "id": "l102",
+          "text": "No puedes irte de su amor",
+          "isTag": false
+        },
+        {
+          "id": "l103",
+          "text": "Yo no me quiero ir",
+          "isTag": false
+        },
+        {
+          "id": "l104",
+          "text": "Yo no me quiero ir",
+          "isTag": false
+        },
+        {
+          "id": "l105",
+          "text": "Quiero estar siempre contigo",
+          "isTag": false
+        },
+        {
+          "id": "l106",
+          "text": "Contigo",
+          "isTag": false
+        },
+        {
+          "id": "l107",
+          "text": "Yo no me quiero apartar de ti",
+          "isTag": false
+        },
+        {
+          "id": "l108",
+          "text": "No",
+          "isTag": false
+        },
+        {
+          "id": "l109",
+          "text": "Y hoy",
+          "isTag": false
+        },
+        {
+          "id": "l110",
+          "text": "Dile no, no, yo no cambiaré",
+          "isTag": false
+        },
+        {
+          "id": "l111",
+          "text": "Y no, no, y yo no cambiaré",
+          "isTag": false
+        },
+        {
+          "id": "l112",
+          "text": "Esta gloria, este poder",
+          "isTag": false
+        },
+        {
+          "id": "l113",
+          "text": "Estar contigo es mi placer",
+          "isTag": false
+        },
+        {
+          "id": "l114",
+          "text": "No me quiero separar de ti",
+          "isTag": false
+        },
+        {
+          "id": "l115",
+          "text": "Y no, no (y yo no cambiaré)",
+          "isTag": false
+        },
+        {
+          "id": "l116",
+          "text": "Esta gloria, este poder",
+          "isTag": false
+        },
+        {
+          "id": "l117",
+          "text": "Estar contigo es mi placer",
+          "isTag": false
+        },
+        {
+          "id": "l118",
+          "text": "No me quiero separar de ti, ¡todos!",
+          "isTag": false
+        },
+        {
+          "id": "l119",
+          "text": "y yo no cambiaré",
+          "isTag": false
+        },
+        {
+          "id": "l120",
+          "text": "Esta gloria, este poder",
+          "isTag": false
+        },
+        {
+          "id": "l121",
+          "text": "Estar contigo es (mi placer)",
+          "isTag": false
+        },
+        {
+          "id": "l122",
+          "text": "(No me quiero separar de ti) ¡cántaselo!",
+          "isTag": false
+        },
+        {
+          "id": "l123",
+          "text": "Y no, y yo no cambiaré",
+          "isTag": false
+        },
+        {
+          "id": "l124",
+          "text": "Esta gloria, este poder",
+          "isTag": false
+        },
+        {
+          "id": "l125",
+          "text": "Estar contigo es mi placer (no me quiero separar de ti)",
+          "isTag": false
+        },
+        {
+          "id": "l126",
+          "text": "¿Cómo podría irme lejos de tu amor? ¡Cántalo!",
+          "isTag": false
+        },
+        {
+          "id": "l127",
+          "text": "No quiero apartarme de aquel (que me amó) ¡grítalo fuerte!",
+          "isTag": false
+        },
+        {
+          "id": "l128",
+          "text": "No quiero irme de tus brazos, mi Señor",
+          "isTag": false
+        },
+        {
+          "id": "l129",
+          "text": "Porque contigo estoy seguro",
+          "isTag": false
+        },
+        {
+          "id": "l130",
+          "text": "Y no me falta nada, ¡vamos, Venezuela, levanta' tu' mano' al cielo!",
+          "isTag": false
+        },
+        {
+          "id": "l131",
+          "text": "Hoy, ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l132",
+          "text": "Todo el que ya no sea el mismo, levante su mano",
+          "isTag": false
+        },
+        {
+          "id": "l133",
+          "text": "Levanta tu mano que tú no eres el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l134",
+          "text": "Desde que Jesús llegó, se fue la tristeza",
+          "isTag": false
+        },
+        {
+          "id": "l135",
+          "text": "Cuando Jesús llegó se fue el dolor",
+          "isTag": false
+        },
+        {
+          "id": "l136",
+          "text": "Cuando Jesús llegó se fue la angustia",
+          "isTag": false
+        },
+        {
+          "id": "l137",
+          "text": "Cuando Jesús llegó lo cambió todo",
+          "isTag": false
+        },
+        {
+          "id": "l138",
+          "text": "Lo cambiaste, aleluya",
+          "isTag": false
+        },
+        {
+          "id": "l139",
+          "text": "Todo lo hiciste nuevo",
+          "isTag": false
+        },
+        {
+          "id": "l140",
+          "text": "Te llevaste mi lamento",
+          "isTag": false
+        },
+        {
+          "id": "l141",
+          "text": "Todo lo hiciste nuevo, amado mío",
+          "isTag": false
+        },
+        {
+          "id": "l142",
+          "text": "Todo lo hiciste nuevo",
+          "isTag": false
+        },
+        {
+          "id": "l143",
+          "text": "Tú te llevaste mi lamento",
+          "isTag": false
+        },
+        {
+          "id": "l144",
+          "text": "Y todo lo hiciste nuevo",
+          "isTag": false
+        },
+        {
+          "id": "l145",
+          "text": "Todo, todo es nuevo",
+          "isTag": false
+        },
+        {
+          "id": "l146",
+          "text": "Todo es nuevo, hay una melodía que está aquí",
+          "isTag": false
+        },
+        {
+          "id": "l147",
+          "text": "Levanta la mano, levanta la mano arriba",
+          "isTag": false
+        },
+        {
+          "id": "l148",
+          "text": "Oh, vamos",
+          "isTag": false
+        },
+        {
+          "id": "l149",
+          "text": "No vas a cambiar esta gloria",
+          "isTag": false
+        },
+        {
+          "id": "l150",
+          "text": "No vas a cambiar la misión",
+          "isTag": false
+        },
+        {
+          "id": "l151",
+          "text": "No vas a cambiar la oportunidad que te dio Dios",
+          "isTag": false
+        },
+        {
+          "id": "l152",
+          "text": "No vas a cambiar lo que Dios te entregó",
+          "isTag": false
+        },
+        {
+          "id": "l153",
+          "text": "¡Levanta tu mano, levanta tu mano!",
+          "isTag": false
+        },
+        {
+          "id": "l154",
+          "text": "(Todo lo hiciste nuevo) ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l155",
+          "text": "(Todo lo hiciste nuevo) no soy el mismo, yo no cambiaré, no",
+          "isTag": false
+        },
+        {
+          "id": "l156",
+          "text": "Y no, no, y yo no cambiaré",
+          "isTag": false
+        },
+        {
+          "id": "l157",
+          "text": "Esta Gloria, este poder",
+          "isTag": false
+        },
+        {
+          "id": "l158",
+          "text": "Estar contigo es mi placer",
+          "isTag": false
+        },
+        {
+          "id": "l159",
+          "text": "Yo no me quiero separar, no, no",
+          "isTag": false
+        },
+        {
+          "id": "l160",
+          "text": "no, no, no quiero estar lejos",
+          "isTag": false
+        },
+        {
+          "id": "l161",
+          "text": "(Esta Gloria, este poder) quiero estar contigo, amado",
+          "isTag": false
+        },
+        {
+          "id": "l162",
+          "text": "(Estar contigo es mi placer) contigo, amado",
+          "isTag": false
+        },
+        {
+          "id": "l163",
+          "text": "En tu presencia, oh (no me quiero separar de ti)",
+          "isTag": false
+        },
+        {
+          "id": "l164",
+          "text": "Y no, no, y yo no cambiaré",
+          "isTag": false
+        },
+        {
+          "id": "l165",
+          "text": "Esta Gloria, este poder",
+          "isTag": false
+        },
+        {
+          "id": "l166",
+          "text": "Estar contigo es mi placer",
+          "isTag": false
+        },
+        {
+          "id": "l167",
+          "text": "¡Grítalo fuerte, yo no cambiaré! (No me quiero separar de ti)",
+          "isTag": false
+        },
+        {
+          "id": "l168",
+          "text": "Y no, y yo no cambiaré",
+          "isTag": false
+        },
+        {
+          "id": "l169",
+          "text": "Esta Gloria, este poder",
+          "isTag": false
+        },
+        {
+          "id": "l170",
+          "text": "Estar contigo es mi placer",
+          "isTag": false
+        },
+        {
+          "id": "l171",
+          "text": "No me quiero separar de ti",
+          "isTag": false
+        },
+        {
+          "id": "l172",
+          "text": "Y hoy (ya yo no soy el mismo)",
+          "isTag": false
+        },
+        {
+          "id": "l173",
+          "text": "Ya yo no soy el mismo",
+          "isTag": false
+        },
+        {
+          "id": "l174",
+          "text": "Hoy (ya yo no soy el mismo)",
+          "isTag": false
+        },
+        {
+          "id": "l175",
+          "text": "Ya yo no soy el mismo",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783257416953",
+      "title": "Torre Fuerte",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "Torre fuerte es el nombre del señor",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "Torre fuerte es el nombre del señor",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "A él correrá el justo",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "Y levantado será",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "A él correrá el justo",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Y levantado será",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "Torre fuerte es el nombre del señor",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "Torre fuerte es el nombre del señor",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "A él correrá el justo",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "Y levantado será",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "A él correrá el justo",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "Y levantado será",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "Torre fuerte es el nombre del señor",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "Torre fuerte es el nombre del señor",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "A él correrá el justo",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "Y levantado será",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783257592057",
+      "title": "Te adoramos",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "Te alabamos",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "Y Te adoramos",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "Cristo es el rey",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "Cristo es el rey",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "Eres grande",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Eres fuerte",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "Poderoso",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "Llenas todo",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "Ante ti, ante ti",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "Todo es nada",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "Cristo es el rey",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "Cristo es el rey",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783259313708",
+      "title": "Jehová Gibbor",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "A la presencia de Jehová tiembla la tierra",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "A la presencia del Dios de Ja-cob",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "A la presencia de Jehová tiembla la tierra",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "A la presencia del Dios de Ja-cob",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "¿Qué tuviste, oh mar que huíste?",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Tú, oh Jordán que te volvis-te a-trás",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "¿Qué tuviste, oh mar que huíste?",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "Tú, oh Jordán que te volvis-te a-tras",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "A la presencia de Jehová tiembla la tierra",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "A la presencia del Dios de Ja-cob",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "A la presencia de Jehová tiembla la tierra",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "A la presencia del Dios de Ja-cob",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "Él convirtió la peña en estanque de agua,",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "De agua, de agua viva",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "Él convirtió la peña en estanque de agua,",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "De agua, de agua viva",
+          "isTag": false
+        },
+        {
+          "id": "l16",
+          "text": "Ahora salta, ahora salta, ahora salta",
+          "isTag": false
+        },
+        {
+          "id": "l17",
+          "text": "Para tu Dios",
+          "isTag": false
+        },
+        {
+          "id": "l18",
+          "text": "Ahora salta, ahora salta, ahora salta",
+          "isTag": false
+        },
+        {
+          "id": "l19",
+          "text": "Para tu Dios",
+          "isTag": false
+        },
+        {
+          "id": "l20",
+          "text": "Y ahora danza, ahora danza, ahora danza",
+          "isTag": false
+        },
+        {
+          "id": "l21",
+          "text": "Para tu Dios",
+          "isTag": false
+        },
+        {
+          "id": "l22",
+          "text": "Y ahora danza, ahora danza, ahora danza",
+          "isTag": false
+        },
+        {
+          "id": "l23",
+          "text": "Para tu Dios",
+          "isTag": false
+        },
+        {
+          "id": "l24",
+          "text": "Y ahora gira, ahora gira, ahora gira",
+          "isTag": false
+        },
+        {
+          "id": "l25",
+          "text": "Para tu Dios",
+          "isTag": false
+        },
+        {
+          "id": "l26",
+          "text": "Y ahora gira, ahora gira, ahora gira",
+          "isTag": false
+        },
+        {
+          "id": "l27",
+          "text": "Para tu Dios",
+          "isTag": false
+        },
+        {
+          "id": "l28",
+          "text": "Y ahora grita, ahora grita, ahora grita",
+          "isTag": false
+        },
+        {
+          "id": "l29",
+          "text": "Para tu Dios",
+          "isTag": false
+        },
+        {
+          "id": "l30",
+          "text": "Y ahora grita, ahora grita, ahora grita",
+          "isTag": false
+        },
+        {
+          "id": "l31",
+          "text": "Para tu Dios",
+          "isTag": false
+        },
+        {
+          "id": "l32",
+          "text": "Y ahora corre, ahora corre, ahora corre",
+          "isTag": false
+        },
+        {
+          "id": "l33",
+          "text": "Para tu Dios",
+          "isTag": false
+        },
+        {
+          "id": "l34",
+          "text": "Y ahora corre, ahora corre, ahora corre",
+          "isTag": false
+        },
+        {
+          "id": "l35",
+          "text": "Para tu Dios",
+          "isTag": false
+        },
+        {
+          "id": "l36",
+          "text": "Y ahora corre, ahora corre, ahora corre",
+          "isTag": false
+        },
+        {
+          "id": "l37",
+          "text": "Para tu Dios",
+          "isTag": false
+        },
+        {
+          "id": "l38",
+          "text": "Y ahora corre, ahora corre, ahora corre",
+          "isTag": false
+        },
+        {
+          "id": "l39",
+          "text": "Para tu Dios",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783259523758",
+      "title": "Sube Sube Sube Nuestra Alabanza",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "Sube, sube, sube nuestra alabanza",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "Con manos extendidas y acción de gracias",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "Con todas mis fuerzas",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "Alegría y danza",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "Doy vueltas en el aire",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Y grito alabanzas",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "El tabernáculo caído de David",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "Hoy en día levantamos",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "Para que los hombres busquen al Señor",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "Un lugar de danza y alabanza extravagante",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "Yo vengo al tabernáculo de David",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "Lugar de adoración para todas las naciones",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "Donde los ciegos y los cojos se sanan",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "El pueblo se llena de su unción",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "Para llevarla a sus casas",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "Un lugar de intimidad con Dios",
+          "isTag": false
+        },
+        {
+          "id": "l16",
+          "text": "Donde adultos y niños alaban con libertad",
+          "isTag": false
+        },
+        {
+          "id": "l17",
+          "text": "Pureza y luz que quema",
+          "isTag": false
+        },
+        {
+          "id": "l18",
+          "text": "Donde la oscuridad no se puede quedar",
+          "isTag": false
+        },
+        {
+          "id": "l19",
+          "text": "Un lugar de revelación y guía",
+          "isTag": false
+        },
+        {
+          "id": "l20",
+          "text": "Jesús está sentado en Su trono",
+          "isTag": false
+        },
+        {
+          "id": "l21",
+          "text": "De autoridad",
+          "isTag": false
+        },
+        {
+          "id": "l22",
+          "text": "El fuerte cetro de Su señorío",
+          "isTag": false
+        },
+        {
+          "id": "l23",
+          "text": "Sale desde Sion",
+          "isTag": false
+        },
+        {
+          "id": "l24",
+          "text": "Declaramos guerra",
+          "isTag": false
+        },
+        {
+          "id": "l25",
+          "text": "Contra potestades",
+          "isTag": false
+        },
+        {
+          "id": "l26",
+          "text": "Gobernamos en el poder",
+          "isTag": false
+        },
+        {
+          "id": "l27",
+          "text": "De resurrección",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783260432874",
+      "title": "Necesito Que Me Ayudes",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "Suelo pensar que no estoy bien",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "Hay oscuridad, no sé si pueda ver",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "Me encuentro en mis pruebas",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "Estoy decayendo, señor yo no sé",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "Pero así me estoy sintiendo",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Si alguien entendiera lo que es caer en el",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "Suelo, lágrimas rogando y mi alma gritando",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "Necesito que me ayudes",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "Porque ya no aguanto más, me siento desmayar",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "Necesito que me vengas ayudar",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "Necesito que me vengas ayudar",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "Necesito que me vengas ayudar",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "Necesito que me vengas ayudar",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "Me encuentro llorando, solo y sin aliento",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "Por dentro no quiero, seguirme escondiendo",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "Me encuentro en mis pruebas",
+          "isTag": false
+        },
+        {
+          "id": "l16",
+          "text": "Estoy decayendo, yo no sé porque",
+          "isTag": false
+        },
+        {
+          "id": "l17",
+          "text": "Pero así me estoy sintiendo",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783261192918",
+      "title": "Levanto Mis Manos",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "Levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "Aunque no tenga fuerzas",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "Levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "Aunque tenga mil problemas",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "Cuando levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Comienzo a sentir",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "Una unción que me hace cantar",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "Cuando levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "Comienzo a sentir",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "El fuego",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "Cuando levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "Mis cargas se van",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "Nuevas fuerzas, Tú me das",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "Todo esto es posible",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "Todo esto es posible",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "Cuando levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l16",
+          "text": "A ver los coros",
+          "isTag": false
+        },
+        {
+          "id": "l17",
+          "text": "Levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l18",
+          "text": "Levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l19",
+          "text": "(Aunque no tenga fuerzas)",
+          "isTag": false
+        },
+        {
+          "id": "l20",
+          "text": "Aunque no tenga fuerzas",
+          "isTag": false
+        },
+        {
+          "id": "l21",
+          "text": "(Aunque tenga mil problemas)",
+          "isTag": false
+        },
+        {
+          "id": "l22",
+          "text": "Levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l23",
+          "text": "(Levántalas alto al cielo conmigo)",
+          "isTag": false
+        },
+        {
+          "id": "l24",
+          "text": "Aunque tenga mil problemas",
+          "isTag": false
+        },
+        {
+          "id": "l25",
+          "text": "(Algo sucede cuando levantas tus manos)",
+          "isTag": false
+        },
+        {
+          "id": "l26",
+          "text": "Cuando levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l27",
+          "text": "(¿Qué comienzas a sentir?) Comienzo a sentir",
+          "isTag": false
+        },
+        {
+          "id": "l28",
+          "text": "Una unción que me hace cantar",
+          "isTag": false
+        },
+        {
+          "id": "l29",
+          "text": "Cántale al Señor",
+          "isTag": false
+        },
+        {
+          "id": "l30",
+          "text": "Cuando levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l31",
+          "text": "Comienzo a sentir (eso mismo estoy sintiendo ahora mismo)",
+          "isTag": false
+        },
+        {
+          "id": "l32",
+          "text": "El fuego",
+          "isTag": false
+        },
+        {
+          "id": "l33",
+          "text": "Cuando levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l34",
+          "text": "(Se van tus cargas y tus problemas también)",
+          "isTag": false
+        },
+        {
+          "id": "l35",
+          "text": "Mis cargas se van",
+          "isTag": false
+        },
+        {
+          "id": "l36",
+          "text": "Nuevas fuerzas, Tú me das",
+          "isTag": false
+        },
+        {
+          "id": "l37",
+          "text": "Todo esto es posible",
+          "isTag": false
+        },
+        {
+          "id": "l38",
+          "text": "Todo esto es posible",
+          "isTag": false
+        },
+        {
+          "id": "l39",
+          "text": "Cuando levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l40",
+          "text": "Cuando levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l41",
+          "text": "Yo comienzo a sentir",
+          "isTag": false
+        },
+        {
+          "id": "l42",
+          "text": "Una unción que me hace cantar (que me hace cantar)",
+          "isTag": false
+        },
+        {
+          "id": "l43",
+          "text": "Cuando levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l44",
+          "text": "Comienzo a sentir",
+          "isTag": false
+        },
+        {
+          "id": "l45",
+          "text": "(El fuego) el fuego",
+          "isTag": false
+        },
+        {
+          "id": "l46",
+          "text": "Cuando levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l47",
+          "text": "Mis cargas se van",
+          "isTag": false
+        },
+        {
+          "id": "l48",
+          "text": "Nuevas fuerzas, Tú me das",
+          "isTag": false
+        },
+        {
+          "id": "l49",
+          "text": "Todo esto es posible (todo esto es posible)",
+          "isTag": false
+        },
+        {
+          "id": "l50",
+          "text": "Todo esto es posible",
+          "isTag": false
+        },
+        {
+          "id": "l51",
+          "text": "Cuando levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l52",
+          "text": "Todo esto es posible",
+          "isTag": false
+        },
+        {
+          "id": "l53",
+          "text": "Todo esto es posible",
+          "isTag": false
+        },
+        {
+          "id": "l54",
+          "text": "¿Cómo se dice el coro?",
+          "isTag": false
+        },
+        {
+          "id": "l55",
+          "text": "Cuando levanto mis manos",
+          "isTag": false
+        },
+        {
+          "id": "l56",
+          "text": "Levanta tus manos",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783829311249",
+      "title": "Bueno Es Dios, Grita Canta Danza, Yo Tengo Gozo",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "Bueno es Dios (bueno es Dios)",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "Bueno es Dios bueno es Dios",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "Hay salvación",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "No me avergüenzo del evangelio",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "Que ha sido gran poder de libertad de la verdad gracias a él",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Hoy levanto el nombre de Jehová",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "No me avergüenzo del evangelio",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "Que ha sido gran poder de libertad de la verdad gracias a él",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "Hoy levanto el nombre de Jehová",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "Hoy me encuentro en corros",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "Porque lo que siento",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "Es salvación en mi corazón",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "Hoy levanto mis pies",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "No me cansaré",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "Hay salvación en mi corazón",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "Hay salvación",
+          "isTag": false
+        },
+        {
+          "id": "l16",
+          "text": "Hay salvación",
+          "isTag": false
+        },
+        {
+          "id": "l17",
+          "text": "Grita, canta, danza alegremente en su presencia",
+          "isTag": false
+        },
+        {
+          "id": "l18",
+          "text": "Gira, salta dando vueltas para Cristo",
+          "isTag": false
+        },
+        {
+          "id": "l19",
+          "text": "Vive, vive para siempre, él es el rey",
+          "isTag": false
+        },
+        {
+          "id": "l20",
+          "text": "Grita, canta, danza alegremente en su presencia",
+          "isTag": false
+        },
+        {
+          "id": "l21",
+          "text": "Gira, salta dando vueltas para Cristo",
+          "isTag": false
+        },
+        {
+          "id": "l22",
+          "text": "Vive, vive para siempre, él es el rey",
+          "isTag": false
+        },
+        {
+          "id": "l23",
+          "text": "Yo estoy contento, porque en mí tengo la vida",
+          "isTag": false
+        },
+        {
+          "id": "l24",
+          "text": "La vida eterna que Jesucristo me dio",
+          "isTag": false
+        },
+        {
+          "id": "l25",
+          "text": "Yo tengo gozo, tengo paz, tengo alegría",
+          "isTag": false
+        },
+        {
+          "id": "l26",
+          "text": "Camino al cielo yo voy",
+          "isTag": false
+        },
+        {
+          "id": "l27",
+          "text": "Esa alegría, que yo siento aquí en mi vida",
+          "isTag": false
+        },
+        {
+          "id": "l28",
+          "text": "Yo no la cambio por la gloria de este mundo",
+          "isTag": false
+        },
+        {
+          "id": "l29",
+          "text": "Estaba muerto y Jesús me dio la vida",
+          "isTag": false
+        },
+        {
+          "id": "l30",
+          "text": "Camino al cielo yo voy",
+          "isTag": false
+        },
+        {
+          "id": "l31",
+          "text": "Yo tengo gozo, tengo alegría",
+          "isTag": false
+        },
+        {
+          "id": "l32",
+          "text": "Tengo a Jesús, tengo la paz, tengo la vida",
+          "isTag": false
+        },
+        {
+          "id": "l33",
+          "text": "Yo tengo gozo, tengo alegría",
+          "isTag": false
+        },
+        {
+          "id": "l34",
+          "text": "Camino al cielo yo voy",
+          "isTag": false
+        },
+        {
+          "id": "l35",
+          "text": "Yo tengo gozo, tengo alegría",
+          "isTag": false
+        },
+        {
+          "id": "l36",
+          "text": "Tengo a Jesús, tengo la paz, tengo la vida",
+          "isTag": false
+        },
+        {
+          "id": "l37",
+          "text": "Yo tengo gozo, tengo alegría",
+          "isTag": false
+        },
+        {
+          "id": "l38",
+          "text": "Camino al cielo yo voy",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783829424906",
+      "title": "Gritan Cantan",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "Grita, canta, danza alegremente en su presencia",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "Gira, salta dando vueltas para Cristo",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "Él vive, vive para siempre, Él es el rey",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "Grita, canta, danza alegremente en su presencia",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "Gira, salta dando vueltas para Cristo",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Él vive, vive para siempre, Él es el rey",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "¡Grita!",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "Te alabaré, te exaltaré y te agradeceré",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "Tu grande amor, Jesús",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "Cambiaste mi lamento en alabanza",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "Sanaste mi herido corazón",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "Te alabaré, te exaltaré y te agradeceré",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "Tu grande amor, Jesús",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "Cambiaste mi lamento en alabanza",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "Sanaste mi herido corazón",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "Grita, canta, danza alegremente en su presencia",
+          "isTag": false
+        },
+        {
+          "id": "l16",
+          "text": "Gira, salta dando vueltas para Cristo",
+          "isTag": false
+        },
+        {
+          "id": "l17",
+          "text": "Él vive, vive para siempre, Él es el rey",
+          "isTag": false
+        },
+        {
+          "id": "l18",
+          "text": "¡Grita!",
+          "isTag": false
+        },
+        {
+          "id": "l19",
+          "text": "Grita, canta, danza alegremente en su presencia",
+          "isTag": false
+        },
+        {
+          "id": "l20",
+          "text": "Gira, salta dando vueltas para Cristo",
+          "isTag": false
+        },
+        {
+          "id": "l21",
+          "text": "Él vive, vive para siempre, Él es el rey",
+          "isTag": false
+        }
+      ]
+    },
+    {
+      "id": "s1783829580633",
+      "title": "Camino Al Cielo Yo Voy",
+      "lines": [
+        {
+          "id": "l0",
+          "text": "Estoy contento porque en El tengo la vida",
+          "isTag": false
+        },
+        {
+          "id": "l1",
+          "text": "La vida eterna que Jesucristo me dio",
+          "isTag": false
+        },
+        {
+          "id": "l2",
+          "text": "Yo tengo gozo, tengo paz, tengo alegría",
+          "isTag": false
+        },
+        {
+          "id": "l3",
+          "text": "Camino al cielo yo voy",
+          "isTag": false
+        },
+        {
+          "id": "l4",
+          "text": "Esta alegría que yo siento aquí en mi vida",
+          "isTag": false
+        },
+        {
+          "id": "l5",
+          "text": "Yo no la cambio por la gloria de este mundo",
+          "isTag": false
+        },
+        {
+          "id": "l6",
+          "text": "Estaba muerto y Jesús me dio la vida",
+          "isTag": false
+        },
+        {
+          "id": "l7",
+          "text": "Camino al cielo ya voy",
+          "isTag": false
+        },
+        {
+          "id": "l8",
+          "text": "Yo tengo gozo, tengo alegría",
+          "isTag": false
+        },
+        {
+          "id": "l9",
+          "text": "Tengo a Jesús, tengo la paz, tengo la vida",
+          "isTag": false
+        },
+        {
+          "id": "l10",
+          "text": "Yo tengo gozo, tengo alegría",
+          "isTag": false
+        },
+        {
+          "id": "l11",
+          "text": "Camino al cielo yo voy",
+          "isTag": false
+        },
+        {
+          "id": "l12",
+          "text": "Esta alegría que yo siento aquí en mi vida",
+          "isTag": false
+        },
+        {
+          "id": "l13",
+          "text": "Yo no la cambio por la gloria de este mundo",
+          "isTag": false
+        },
+        {
+          "id": "l14",
+          "text": "Estaba muerto y Jesús me dio la vida",
+          "isTag": false
+        },
+        {
+          "id": "l15",
+          "text": "Camino al cielo ya voy",
+          "isTag": false
+        },
+        {
+          "id": "l16",
+          "text": "En Jesucristo yo encontré la nueva vida",
+          "isTag": false
+        },
+        {
+          "id": "l17",
+          "text": "La vida eterna que solo él te puede dar",
+          "isTag": false
+        },
+        {
+          "id": "l18",
+          "text": "Yo estaba muerto y Jesús me dio la vida",
+          "isTag": false
+        },
+        {
+          "id": "l19",
+          "text": "Camino al cielo ya voy",
           "isTag": false
         }
       ]
